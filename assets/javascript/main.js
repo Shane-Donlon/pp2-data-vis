@@ -5,6 +5,12 @@ function parseData(data) {
   data.release_date = data.release_date.slice(-4);
   //   convert string to number for sorting
   data.release_date = +data.release_date;
+  // convert string to number
+  data.budget = +data.budget;
+  data.revenue = +data.revenue;
+  data.runtime = +data.runtime;
+  data.vote_average = +data.vote_average;
+
   //   return all data
   return data;
 }
