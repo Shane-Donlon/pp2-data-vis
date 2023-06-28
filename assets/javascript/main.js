@@ -47,6 +47,12 @@ const barChart = async () => {
       ],
     },
     options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Movies by Year all Years",
+        },
+      },
       indexAxis: "y",
       scales: {
         y: {
