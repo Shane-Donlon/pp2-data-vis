@@ -15,12 +15,13 @@ function parseData(data) {
   return data;
 }
 // destructing d3 to avoid d3.csv etc.. in code
-const { csv } = d3;
+const { csv, group, flatGroup } = d3;
 
 // barChart
 const barChart = async () => {
   const bardata = await csv(csvUrl, parseData);
-  console.log(bardata);
+  //   group movies by year in array form then sort smallest to largest
+  let moviesByYear = flatGroup(bardata, (d) => d.release_date).sort();
 };
 
 barChart();
