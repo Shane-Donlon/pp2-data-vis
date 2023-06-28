@@ -35,6 +35,28 @@ const barChart = async () => {
     movieData.count = movie[1].length;
     return movieData;
   });
+  let moviesReleasedChart = new Chart(barChartArea, {
+    type: "bar",
+    data: {
+      labels: dataForMoviesByYearChart.map((d) => d.year),
+      datasets: [
+        {
+          label: "Movies Released",
+          data: dataForMoviesByYearChart.map((d) => d.count),
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+      // FIXME: - change to true this is to keep the chart small for now
+      responsive: false,
+    },
+  });
 };
 
 barChart();
