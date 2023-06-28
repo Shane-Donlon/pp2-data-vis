@@ -22,6 +22,19 @@ const barChart = async () => {
   const bardata = await csv(csvUrl, parseData);
   //   group movies by year in array form then sort smallest to largest
   let moviesByYear = flatGroup(bardata, (d) => d.release_date).sort();
+  //   ChartJS Canvas for chart
+  let barChartArea = document
+    .querySelector("#moviesByYearChart")
+    .getContext("2d");
+
+  let dataForMoviesByYearChart = moviesByYear.map((movie, index) => {
+    let movieData = {};
+    movieData.year = {};
+    movieData.count = {};
+    movieData.year = movie[0];
+    movieData.count = movie[1].length;
+    return movieData;
+  });
 };
 
 barChart();
