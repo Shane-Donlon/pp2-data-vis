@@ -194,10 +194,21 @@ const main = async () => {
     let scatterRaw = flatRollup(
       rawData,
       (v) => v.length,
-      (d) => d.release_date,
-      (d) => d.budget,
-      (d) => d.revenue
+
+      (d) => {
+        if (d.budget != 0) {
+          return d.budget;
+        }
+      },
+      (d) => {
+        if (d.revenue != 0) {
+          return d.revenue;
+        }
+      }
     );
+
+    console.log(scatterRaw);
+
     let scatterDataOnLoad = scatterRaw.map((movie, index) => {
       let movieData = {};
       movieData.x = {};
@@ -206,11 +217,12 @@ const main = async () => {
       // moviedata.r is used for Bubble
       // movieData.r = {};
       // movieData.r = 15;
-      movieData.x = movie[1];
-      movieData.y = movie[2];
+      movieData.x = movie[0];
+      movieData.y = movie[1];
       return movieData;
     });
 
+    console.log(scatterDataOnLoad);
     const data = {
       datasets: [
         {
