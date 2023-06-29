@@ -32,15 +32,27 @@
 
     <main id="main">
       <!-- mby= moviesbyyear -->
-      <input
-        type="range"
-        name="mbySlider"
-        id="mbySlider"
-        class="mbySlider"
-        step="1"
-      />
-      <canvas id="moviesByYearChart"></canvas>
+      <div class="chart-wrapper">
+        <input
+          type="range"
+          name="mbySlider"
+          id="mbySlider"
+          class="mbySlider"
+          step="1"
+        />
+        <canvas id="moviesByYearChart"></canvas>
+      </div>
+      <div class="chart-wrapper">
+        <input
+          type="range"
+          name="languagePieSlider"
+          id="languagePieSlider"
+          class="languagePieSlider"
+        />
+        <canvas id="languagePieArea"></canvas>
+      </div>
     </main>
+
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 

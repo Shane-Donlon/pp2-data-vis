@@ -77,13 +77,17 @@ const main = async () => {
             text: "Total Movies Produced By Year",
           },
         },
-        indexAxis: "x",
         scales: {
           y: {
             beginAtZero: true,
           },
         },
-        responsive: true,
+
+        layout: {
+          padding: {
+            left: 50,
+          },
+        },
       },
     };
     let moviesReleasedChart = new Chart(barChartArea, config);
@@ -98,6 +102,7 @@ const main = async () => {
         (d) => d.release_date === sliderValue
       );
       moviesReleasedChart.options.plugins.title.text = `Distrbution of Movies by Genre For Year ${sliderValue}`;
+
       moviesReleasedChart.data.labels = result.map((d) => d.genres);
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
