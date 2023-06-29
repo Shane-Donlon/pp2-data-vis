@@ -186,9 +186,23 @@ const main = async () => {
       moviveLanguageChart.update();
     });
   }
+
+  function revBudget() {
+    let revBudgetArea = document
+      .querySelector("#revBudgetArea")
+      .getContext("2d");
+    let scatterRaw = flatRollup(
+      rawData,
+      (v) => v.length,
+      (d) => d.release_date,
+      (d) => d.budget,
+      (d) => d.revenue
+    );
+  }
   // functions to call charts
   moviesByYearChart();
   pieChart();
+  revBudget();
 };
 
 main();
