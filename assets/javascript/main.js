@@ -90,7 +90,7 @@ const main = async () => {
     mbySlider.setAttribute("min", sliderMinMax[0]);
     mbySlider.setAttribute("max", sliderMinMax[1]);
 
-    mbySlider.addEventListener("input", (e) => {
+    function updateChart(e) {
       let sliderValue = +e.target.value;
       // on input change from line chart to bar chart
       config.type = "bar";
@@ -104,7 +104,8 @@ const main = async () => {
       );
 
       moviesReleasedChart.update();
-    });
+    }
+    mbySlider.addEventListener("input", updateChart);
   }
   // functions to call charts
   moviesByYearChart();
