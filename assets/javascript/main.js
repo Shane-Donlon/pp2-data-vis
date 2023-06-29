@@ -123,7 +123,31 @@ const main = async () => {
         }
       }
     );
-    console.log(pieDataOnLoad);
+    const data = {
+      labels: pieDataOnLoad.map((d) => d[0]),
+      datasets: [
+        {
+          label: "Count of Movies",
+          data: pieDataOnLoad.map((d) => d[1]),
+        },
+      ],
+    };
+    const config = {
+      type: "doughnut",
+      data: data,
+      options: {
+        scales: {},
+        responsive: true,
+
+        plugins: {
+          title: {
+            display: true,
+            text: `Movies by language all years`,
+          },
+        },
+      },
+    };
+    let moviveLanguageChart = new Chart(pieChartArea, config);
   }
   pieChart();
 };
