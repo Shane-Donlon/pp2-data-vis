@@ -74,7 +74,7 @@ const main = async () => {
         plugins: {
           title: {
             display: true,
-            text: "Movies by Year all Years",
+            text: "Total Movies Produced By Year",
           },
         },
         indexAxis: "x",
@@ -97,7 +97,7 @@ const main = async () => {
       let result = filteredDataGenres.filter(
         (d) => d.release_date === sliderValue
       );
-      moviesReleasedChart.options.plugins.title.text = `Movies by Genre for year ${sliderValue}`;
+      moviesReleasedChart.options.plugins.title.text = `Distrbution of Movies by Genre For Year ${sliderValue}`;
       moviesReleasedChart.data.labels = result.map((d) => d.genres);
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
