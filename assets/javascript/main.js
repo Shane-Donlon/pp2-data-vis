@@ -15,12 +15,11 @@ function parseData(data) {
   return data;
 }
 // destructing d3 to avoid d3.csv etc.. in code
-const { csv, group, flatGroup, flatRollup } = d3;
+const { csv, flatGroup, flatRollup, extent } = d3;
 
 // barChart
 const main = async () => {
   const rawData = await csv(csvUrl, parseData);
-  //   group movies by year in array form then sort smallest to largest
 
   // bar chart movies by Year
   function moviesByYearChart() {
@@ -28,7 +27,7 @@ const main = async () => {
     let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
     const mbySlider = document.querySelector("#mbySlider");
-    let sliderMinMax = d3.extent(rawData, (d) => d.release_date);
+    let sliderMinMax = extent(rawData, (d) => d.release_date);
     //   ChartJS Canvas for chart
     let barChartArea = document
       .querySelector("#moviesByYearChart")
@@ -43,15 +42,13 @@ const main = async () => {
       return movieData;
     });
 
-    // chart filter data
-
     let moviesByGenre = flatRollup(
       rawData,
       (v) => v.length,
       (d) => d.release_date,
       (d) => d.genres
     );
-
+    //  returns object for release dates, genres, and sum of genres
     let filteredDataGenres = moviesByGenre.map((movie, index) => {
       let genreData = {};
       genreData.release_date = movie[0];
@@ -59,7 +56,7 @@ const main = async () => {
       genreData.genreCount = movie[2];
       return genreData;
     });
-
+    // chart data
     const data = {
       labels: dataForMoviesByYearChart.map((d) => d.year),
       datasets: [
