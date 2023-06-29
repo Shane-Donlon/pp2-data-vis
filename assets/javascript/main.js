@@ -19,16 +19,16 @@ const { csv, group, flatGroup, flatRollup } = d3;
 
 // barChart
 const main = async () => {
-  const data = await csv(csvUrl, parseData);
+  const rawData = await csv(csvUrl, parseData);
   //   group movies by year in array form then sort smallest to largest
 
   // bar chart movies by Year
   function moviesByYearChart() {
     // Data for Bar Chart on load
-    let moviesByYear = flatGroup(data, (d) => d.release_date).sort();
+    let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
     const mbySlider = document.querySelector("#mbySlider");
-    let sliderMinMax = d3.extent(data, (d) => d.release_date);
+    let sliderMinMax = d3.extent(rawData, (d) => d.release_date);
     //   ChartJS Canvas for chart
     let barChartArea = document
       .querySelector("#moviesByYearChart")
@@ -46,7 +46,7 @@ const main = async () => {
     // chart filter data
 
     let moviesByGenre = flatRollup(
-      data,
+      rawData,
       (v) => v.length,
       (d) => d.release_date,
       (d) => d.genres
@@ -60,17 +60,19 @@ const main = async () => {
       return genreData;
     });
 
-    let moviesReleasedChart = new Chart(barChartArea, {
-      type: "bar",
-      data: {
-        labels: dataForMoviesByYearChart.map((d) => d.year),
-        datasets: [
-          {
-            label: "Movies Released",
-            data: dataForMoviesByYearChart.map((d) => d.count),
-          },
-        ],
-      },
+    const data = {
+      labels: dataForMoviesByYearChart.map((d) => d.year),
+      datasets: [
+        {
+          label: "Movies Released",
+          data: dataForMoviesByYearChart.map((d) => d.count),
+        },
+      ],
+    };
+
+    const config = {
+      type: "line",
+      data: data,
       options: {
         plugins: {
           title: {
@@ -86,20 +88,24 @@ const main = async () => {
         },
         responsive: true,
       },
-    });
+    };
+    let moviesReleasedChart = new Chart(barChartArea, config);
     mbySlider.setAttribute("min", sliderMinMax[0]);
     mbySlider.setAttribute("max", sliderMinMax[1]);
 
     mbySlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      // on input change from line chart to bar chart
+      config.type = "bar";
       let result = filteredDataGenres.filter(
         (d) => d.release_date === sliderValue
       );
-
+      moviesReleasedChart.options.plugins.title.text = `Movies by Genre for year ${sliderValue}`;
       moviesReleasedChart.data.labels = result.map((d) => d.genres);
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
       );
+
       moviesReleasedChart.update();
     });
   }
