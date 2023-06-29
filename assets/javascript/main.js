@@ -43,13 +43,22 @@ const main = async () => {
       return movieData;
     });
 
-    // chart filter data on change
-    let moviesByYearFilterData = flatRollup(
+    // chart filter data
+
+    let moviesByGenre = flatRollup(
       data,
       (v) => v.length,
       (d) => d.release_date,
       (d) => d.genres
     );
+
+    let filteredDataGenres = moviesByGenre.map((movie, index) => {
+      let genreData = {};
+      genreData.release_date = movie[0];
+      genreData.genres = movie[1];
+      genreData.genreCount = movie[2];
+      return genreData;
+    });
 
     let moviesReleasedChart = new Chart(barChartArea, {
       type: "bar",
@@ -69,7 +78,7 @@ const main = async () => {
             text: "Movies by Year all Years",
           },
         },
-        indexAxis: "y",
+        indexAxis: "x",
         scales: {
           y: {
             beginAtZero: true,
@@ -83,6 +92,15 @@ const main = async () => {
 
     mbySlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      let result = filteredDataGenres.filter(
+        (d) => d.release_date === sliderValue
+      );
+
+      moviesReleasedChart.data.labels = result.map((d) => d.genres);
+      moviesReleasedChart.data.datasets[0].data = result.map(
+        (d) => d.genreCount
+      );
+      moviesReleasedChart.update();
     });
   }
   // functions to call charts
