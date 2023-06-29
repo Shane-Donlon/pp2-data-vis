@@ -128,6 +128,30 @@ const main = async () => {
         }
       }
     );
+
+    let pieDataForInput = flatRollup(
+      rawData,
+      (v) => v.length,
+      (d) => d.release_date,
+      (d) => {
+        if (d.original_language === "en") {
+          return "English";
+        } else {
+          return "Non-English";
+        }
+      }
+    );
+    let pieDataOnInput = pieDataForInput.map((language, index) => {
+      let moviesData = {};
+      moviesData.year = {};
+      moviesData.language = {};
+      moviesData.languageCount = {};
+      moviesData.year = language[0];
+      moviesData.language = language[1];
+      moviesData.languageCount = language[2];
+      return moviesData;
+    });
+
     const data = {
       labels: pieDataOnLoad.map((d) => d[0]),
       datasets: [
@@ -154,7 +178,14 @@ const main = async () => {
     };
     let moviveLanguageChart = new Chart(pieChartArea, config);
     languagePieSlider.addEventListener("input", (e) => {
-      let sliderValue = e.target.value;
+      let sliderValue = +e.target.value;
+      let result = pieDataOnInput.filter((d) => d.year === sliderValue);
+      moviveLanguageChart.options.plugins.title.text = `Movies by language for year ${sliderValue}`;
+      moviveLanguageChart.data.labels = result.map((d) => d.language);
+      moviveLanguageChart.data.datasets[0].data = result.map(
+        (d) => d.languageCount
+      );
+      moviveLanguageChart.update();
     });
   }
   pieChart();
