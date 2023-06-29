@@ -242,7 +242,7 @@ const main = async () => {
             },
             display: true,
             // FIXME: consider removing log scales
-            // type: "logarithmic",
+            type: "logarithmic",
           },
           y: {
             grid: {
