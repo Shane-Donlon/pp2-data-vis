@@ -15,7 +15,7 @@ function parseData(data) {
   return data;
 }
 // destructing d3 to avoid d3.csv etc.. in code
-const { csv, group, flatGroup } = d3;
+const { csv, group, flatGroup, flatRollup } = d3;
 
 // barChart
 const main = async () => {
@@ -26,6 +26,9 @@ const main = async () => {
   function moviesByYearChart() {
     // Data for Bar Chart on load
     let moviesByYear = flatGroup(data, (d) => d.release_date).sort();
+    // slider to filter data
+    const mbySlider = document.querySelector("#mbySlider");
+    let sliderMinMax = d3.extent(data, (d) => d.release_date);
     //   ChartJS Canvas for chart
     let barChartArea = document
       .querySelector("#moviesByYearChart")
@@ -39,6 +42,15 @@ const main = async () => {
       movieData.count = movie[1].length;
       return movieData;
     });
+
+    // chart filter data on change
+    let moviesByYearFilterData = flatRollup(
+      data,
+      (v) => v.length,
+      (d) => d.release_date,
+      (d) => d.genres
+    );
+
     let moviesReleasedChart = new Chart(barChartArea, {
       type: "bar",
       data: {
@@ -65,6 +77,12 @@ const main = async () => {
         },
         responsive: true,
       },
+    });
+    mbySlider.setAttribute("min", sliderMinMax[0]);
+    mbySlider.setAttribute("max", sliderMinMax[1]);
+
+    mbySlider.addEventListener("input", (e) => {
+      let sliderValue = +e.target.value;
     });
   }
   // functions to call charts
