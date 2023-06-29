@@ -211,8 +211,6 @@ const main = async () => {
       return movieData;
     });
 
-    console.log(scatterDataOnLoad);
-
     const data = {
       datasets: [
         {
@@ -245,6 +243,7 @@ const main = async () => {
     };
 
     let scatterChart = new Chart(revBudgetArea, config);
+    scatterChart.update();
   }
   // functions to call charts
   moviesByYearChart();
