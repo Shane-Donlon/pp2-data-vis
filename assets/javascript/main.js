@@ -82,12 +82,6 @@ const main = async () => {
             beginAtZero: true,
           },
         },
-
-        layout: {
-          padding: {
-            left: 50,
-          },
-        },
       },
     };
     let moviesReleasedChart = new Chart(barChartArea, config);
@@ -114,6 +108,24 @@ const main = async () => {
   }
   // functions to call charts
   moviesByYearChart();
+  function pieChart() {
+    let pieChartArea = document
+      .querySelector("#languagePieArea")
+      .getContext("2d");
+    let pieDataOnLoad = flatRollup(
+      rawData,
+      (v) => v.length,
+      (d) => {
+        if (d.original_language === "en") {
+          return "English";
+        } else {
+          return "Non-English";
+        }
+      }
+    );
+    console.log(pieDataOnLoad);
+  }
+  pieChart();
 };
 
 main();
