@@ -106,8 +106,6 @@ const main = async () => {
     }
     mbySlider.addEventListener("input", updateChart);
   }
-  // functions to call charts
-  moviesByYearChart();
 
   // pieChart start
   function pieChart() {
@@ -188,6 +186,8 @@ const main = async () => {
       moviveLanguageChart.update();
     });
   }
+  // functions to call charts
+  moviesByYearChart();
   pieChart();
 };
 
