@@ -198,6 +198,53 @@ const main = async () => {
       (d) => d.budget,
       (d) => d.revenue
     );
+    let scatterDataOnLoad = scatterRaw.map((movie, index) => {
+      let movieData = {};
+      movieData.x = {};
+      movieData.y = {};
+      // FIXME: remove if not using bubble
+      // moviedata.r is used for Bubble
+      // movieData.r = {};
+      // movieData.r = 15;
+      movieData.x = movie[1];
+      movieData.y = movie[2];
+      return movieData;
+    });
+
+    console.log(scatterDataOnLoad);
+
+    const data = {
+      datasets: [
+        {
+          label: "Budget Vs Revenue",
+          data: scatterDataOnLoad,
+        },
+      ],
+    };
+    const config = {
+      type: "scatter",
+      data: data,
+      options: {
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+            display: true,
+            // FIXME: consider removing log scales
+            // type: "logarithmic",
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        responsive: true,
+      },
+    };
+
+    let scatterChart = new Chart(revBudgetArea, config);
   }
   // functions to call charts
   moviesByYearChart();
