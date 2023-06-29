@@ -20,14 +20,14 @@ const { csv, flatGroup, flatRollup, extent } = d3;
 // barChart
 const main = async () => {
   const rawData = await csv(csvUrl, parseData);
-
+  let sliderMinMax = extent(rawData, (d) => d.release_date);
   // bar chart movies by Year
   function moviesByYearChart() {
     // Data for Bar Chart on load
     let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
     const mbySlider = document.querySelector("#mbySlider");
-    let sliderMinMax = extent(rawData, (d) => d.release_date);
+
     //   ChartJS Canvas for chart
     let barChartArea = document
       .querySelector("#moviesByYearChart")
@@ -108,7 +108,12 @@ const main = async () => {
   }
   // functions to call charts
   moviesByYearChart();
+
+  // pieChart start
   function pieChart() {
+    let pieChartSlider = document.querySelector(".languagePieSlider");
+    pieChartSlider.setAttribute("min", sliderMinMax[0]);
+    pieChartSlider.setAttribute("max", sliderMinMax[1]);
     let pieChartArea = document
       .querySelector("#languagePieArea")
       .getContext("2d");
@@ -148,6 +153,9 @@ const main = async () => {
       },
     };
     let moviveLanguageChart = new Chart(pieChartArea, config);
+    languagePieSlider.addEventListener("input", (e) => {
+      let sliderValue = e.target.value;
+    });
   }
   pieChart();
 };
