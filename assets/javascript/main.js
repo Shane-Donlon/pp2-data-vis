@@ -320,6 +320,32 @@ const main = async () => {
       }
     );
 
+    let scatterDataOnInput = flatRollup(
+      rawData,
+      (v) => v.length,
+      (d) => d.release_date,
+      (d) => {
+        if (d.budget != 0) {
+          return d.budget;
+        }
+      },
+      (d) => {
+        if (d.revenue != 0) {
+          return d.revenue;
+        }
+      }
+    );
+    let scatterDataforInputChart = scatterDataOnInput.map((language, index) => {
+      let moviesData = {};
+      moviesData.year = {};
+      moviesData.x = {};
+      moviesData.y = {};
+      moviesData.year = language[0];
+      moviesData.x = language[1];
+      moviesData.y = language[2];
+      return moviesData;
+    });
+
     let scatterDataOnLoad = scatterRaw.map((movie, index) => {
       let movieData = {};
       movieData.x = {};
@@ -352,7 +378,7 @@ const main = async () => {
             },
             display: true,
             // FIXME: consider removing log scales
-            type: "logarithmic",
+            // type: "logarithmic",
           },
           y: {
             grid: {
@@ -368,7 +394,14 @@ const main = async () => {
     let revBudgetSlider = document.querySelector(".revBudgetSlider");
     revBudgetSlider.setAttribute("min", sliderMinMax[0]);
     revBudgetSlider.setAttribute("max", sliderMinMax[1]);
-    scatterChart.update();
+    revBudgetSlider.addEventListener("input", (e) => {
+      let sliderValue = +e.target.value;
+      let result = scatterDataforInputChart.filter(
+        (d) => d.year === sliderValue
+      );
+      scatterChart.data.datasets[0].data = result;
+      scatterChart.update();
+    });
   }
   // functions to call charts
   moviesByYearChart();
