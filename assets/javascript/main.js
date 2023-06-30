@@ -389,6 +389,39 @@ const main = async () => {
         responsive: true,
       },
     };
+    let revBudgetTableWrapper = document.querySelector(
+      ".revBudget-table-wrapper"
+    );
+    let revBudgetTableHtml = `
+    <table class="visually-hidden" tabindex="0">
+    <thead>
+      <tr>
+        <th>Revenue</th>
+        <th>Budget</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+`;
+
+    for (movies of scatterDataOnLoad) {
+      if (movies.x != undefined && movies.y != undefined) {
+        let revBudgetTableRow = `
+    <tr class="mbyTableRow">
+      <td>${movies.x}</td>
+      <td>${movies.y}</td>
+      <td>${movies.x - movies.y}</td>
+    </tr>
+  `;
+
+        revBudgetTableHtml += revBudgetTableRow;
+      }
+    }
+    revBudgetTableHtml += `
+  </tbody>
+</table>
+`;
+    revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
 
     let scatterChart = new Chart(revBudgetArea, config);
     let revBudgetSlider = document.querySelector(".revBudgetSlider");
