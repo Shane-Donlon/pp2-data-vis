@@ -87,7 +87,7 @@ const main = async () => {
     // table
     let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
     let mbyTableHtml = `
-  <table class="visually-hidden" tabindex="0">
+    <table class="visually-hidden" tabindex="0">
     <thead>
       <tr>
         <th>Year</th>
@@ -182,6 +182,8 @@ const main = async () => {
       }
     );
 
+    console.log(pieDataOnLoad);
+
     let pieDataForInput = flatRollup(
       rawData,
       (v) => v.length,
@@ -229,6 +231,36 @@ const main = async () => {
         },
       },
     };
+    // sr only table on load
+    let languagePieTableWrapper = document.querySelector(
+      ".languagePie-table-wrapper"
+    );
+    let languagePieTableHtml = `
+    <table class="visually-hidden" tabindex="0">
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Count of Movies</th>
+      </tr>
+    </thead>
+    <tbody>
+`;
+
+    for (movies of pieDataOnLoad) {
+      let languagePieTableRow = `
+    <tr class="mbyTableRow">
+      <td>${movies[0]}</td>
+      <td>${movies[1]}</td>
+    </tr>
+  `;
+      languagePieTableHtml += languagePieTableRow;
+    }
+    languagePieTableHtml += `
+  </tbody>
+</table>
+`;
+    languagePieTableWrapper.innerHTML = languagePieTableHtml;
+
     let moviveLanguageChart = new Chart(pieChartArea, config);
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
