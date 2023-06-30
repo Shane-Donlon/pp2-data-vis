@@ -362,7 +362,7 @@ const main = async () => {
     const data = {
       datasets: [
         {
-          label: "Budget Vs Revenue",
+          label: "Distribution of Budget & Revenue for All Years",
           data: scatterDataOnLoad,
         },
       ],
@@ -378,7 +378,7 @@ const main = async () => {
             },
             display: true,
             // FIXME: consider removing log scales
-            // type: "logarithmic",
+            type: "logarithmic",
           },
           y: {
             grid: {
@@ -399,7 +399,9 @@ const main = async () => {
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
+      scatterChart.data.datasets[0].label = `Distribution of Budget & Revenue for year ${sliderValue}`;
       scatterChart.data.datasets[0].data = result;
+      scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
     });
   }
