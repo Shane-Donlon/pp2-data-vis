@@ -84,6 +84,34 @@ const main = async () => {
         },
       },
     };
+    // table
+    let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
+    let mbyTableHtml = `
+  <table class="visually-hidden" tabindex="0">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Count of Movies</th>
+      </tr>
+    </thead>
+    <tbody>
+`;
+    console.log(dataForMoviesByYearChart);
+
+    for (movies of dataForMoviesByYearChart) {
+      let mbyTableRow = `
+    <tr class="mbyTableRow">
+      <td>${movies.year}</td>
+      <td>${movies.count}</td>
+    </tr>
+  `;
+      mbyTableHtml += mbyTableRow;
+    }
+    mbyTableHtml += `
+  </tbody>
+</table>
+`;
+    mbyTableWrapper.innerHTML = mbyTableHtml;
     let moviesReleasedChart = new Chart(barChartArea, config);
     mbySlider.setAttribute("min", sliderMinMax[0]);
     mbySlider.setAttribute("max", sliderMinMax[1]);
