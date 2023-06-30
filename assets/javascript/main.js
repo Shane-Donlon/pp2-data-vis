@@ -96,7 +96,6 @@ const main = async () => {
     </thead>
     <tbody>
 `;
-    console.log(dataForMoviesByYearChart);
 
     for (movies of dataForMoviesByYearChart) {
       let mbyTableRow = `
@@ -129,7 +128,35 @@ const main = async () => {
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
       );
+      // sr only table on change
+      mbyTableWrapper.innerHTML = null;
+      mbyTableHtml = `
+        <table class="visually-hidden" tabindex="0">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Genre</th>
+              <th>Count of movies in Genre</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
 
+      for (movies of result) {
+        mbyTableRow = `
+          <tr class="mbyTableRow">
+            <td>${movies.release_date}</td>
+            <td>${movies.genres}</td>
+            <td>${movies.genreCount}</td>
+          </tr>
+        `;
+        mbyTableHtml += mbyTableRow;
+      }
+      mbyTableHtml += `
+        </tbody>
+      </table>
+      `;
+      mbyTableWrapper.innerHTML = mbyTableHtml;
       moviesReleasedChart.update();
     }
     mbySlider.addEventListener("input", updateChart);
@@ -235,8 +262,6 @@ const main = async () => {
       }
     );
 
-    console.log(scatterRaw);
-
     let scatterDataOnLoad = scatterRaw.map((movie, index) => {
       let movieData = {};
       movieData.x = {};
@@ -250,7 +275,6 @@ const main = async () => {
       return movieData;
     });
 
-    console.log(scatterDataOnLoad);
     const data = {
       datasets: [
         {
