@@ -354,7 +354,9 @@ const main = async () => {
       // moviedata.r is used for Bubble
       // movieData.r = {};
       // movieData.r = 15;
+      // movie[0] is budget
       movieData.x = movie[0];
+      // movie[1] is revenue
       movieData.y = movie[1];
       return movieData;
     });
@@ -405,12 +407,13 @@ const main = async () => {
 `;
 
     for (movies of scatterDataOnLoad) {
+      // movies.x = budget movies.y = revenue
       if (movies.x != undefined && movies.y != undefined) {
         let revBudgetTableRow = `
     <tr class="mbyTableRow">
       <td>${movies.x}</td>
       <td>${movies.y}</td>
-      <td>${movies.x - movies.y}</td>
+      <td>${movies.y - movies.x}</td>
     </tr>
   `;
 
@@ -436,6 +439,39 @@ const main = async () => {
       scatterChart.data.datasets[0].data = result;
       scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
+      revBudgetTableHtml = `
+    <table class="visually-hidden" tabindex="0">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Revenue</th>
+        <th>Budget</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+`;
+
+      for (movies of result) {
+        // movies.x = budget movies.y = revenue
+        if (movies.x != undefined && movies.y != undefined) {
+          let revBudgetTableRow = `
+    <tr class="mbyTableRow">
+      <td>${sliderValue}</td>
+      <td>${movies.x}</td>
+      <td>${movies.y}</td>
+      <td>${movies.y - movies.x}</td>
+    </tr>
+  `;
+
+          revBudgetTableHtml += revBudgetTableRow;
+        }
+      }
+      revBudgetTableHtml += `
+  </tbody>
+</table>
+`;
+      revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
     });
   }
   // functions to call charts
