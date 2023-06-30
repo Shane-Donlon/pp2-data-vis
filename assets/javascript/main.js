@@ -282,7 +282,7 @@ const main = async () => {
   `;
 
       for (movies of pieDataOnInput) {
-        let languagePieTableRow = `
+        languagePieTableRow = `
       <tr class="mbyTableRow">
         <td>${sliderValue}</td>
         <td>${movies.language}</td>
@@ -365,6 +365,9 @@ const main = async () => {
     };
 
     let scatterChart = new Chart(revBudgetArea, config);
+    let revBudgetSlider = document.querySelector(".revBudgetSlider");
+    revBudgetSlider.setAttribute("min", sliderMinMax[0]);
+    revBudgetSlider.setAttribute("max", sliderMinMax[1]);
     scatterChart.update();
   }
   // functions to call charts
