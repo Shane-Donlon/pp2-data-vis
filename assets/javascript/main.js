@@ -21,6 +21,7 @@ const { csv, flatGroup, flatRollup, extent } = d3;
 const main = async () => {
   const rawData = await csv(csvUrl, parseData);
   let sliderMinMax = extent(rawData, (d) => d.release_date);
+
   // bar chart movies by Year
   function moviesByYearChart() {
     // Data for Bar Chart on load
@@ -56,6 +57,7 @@ const main = async () => {
       genreData.genreCount = movie[2];
       return genreData;
     });
+
     // chart data
     const data = {
       labels: dataForMoviesByYearChart.map((d) => d.year),
@@ -112,6 +114,7 @@ const main = async () => {
 `;
     mbyTableWrapper.innerHTML = mbyTableHtml;
     let moviesReleasedChart = new Chart(barChartArea, config);
+
     mbySlider.setAttribute("min", sliderMinMax[0]);
     mbySlider.setAttribute("max", sliderMinMax[1]);
 
@@ -160,6 +163,13 @@ const main = async () => {
       moviesReleasedChart.update();
     }
     mbySlider.addEventListener("input", updateChart);
+    let button = document.querySelector(".reset");
+    let canvasWrapper = document.querySelector(".canvas-wrapper");
+    button.addEventListener("click", () => {
+      canvasWrapper.innerHTML = null;
+      canvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
+      moviesByYearChart();
+    });
   }
 
   // pieChart start
@@ -474,6 +484,7 @@ const main = async () => {
       revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
     });
   }
+
   // functions to call charts
   moviesByYearChart();
   pieChart();
