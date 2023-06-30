@@ -167,6 +167,7 @@ const main = async () => {
     let mbycanvasWrapper = document.querySelector(
       ".canvas-wrapper-moviesByYearChart"
     );
+    // btn to reset chart
     mbyButton.addEventListener("click", () => {
       mbycanvasWrapper.innerHTML = null;
       mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
@@ -279,6 +280,7 @@ const main = async () => {
     let languagePieCanvasWrapper = document.querySelector(
       ".language-pie-canvas-wrapper"
     );
+    // btn to reset chart
     resetlanguagePieChartBtn.addEventListener("click", () => {
       languagePieCanvasWrapper.innerHTML = null;
       languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
@@ -453,6 +455,16 @@ const main = async () => {
     let revBudgetSlider = document.querySelector(".revBudgetSlider");
     revBudgetSlider.setAttribute("min", sliderMinMax[0]);
     revBudgetSlider.setAttribute("max", sliderMinMax[1]);
+    let revBudgetResetBtn = document.querySelector(".resetrevBudgetChart");
+    let revBudgetCanvasWrapper = document.querySelector(
+      ".revBudget-canvas-wrapper"
+    );
+    revBudgetResetBtn.addEventListener("click", () => {
+      revBudgetCanvasWrapper.innerHTML = null;
+      revBudgetCanvasWrapper.innerHTML = `<canvas id="revBudgetArea"></canvas>`;
+      revBudget();
+    });
+
     revBudgetSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
       let result = scatterDataforInputChart.filter(
