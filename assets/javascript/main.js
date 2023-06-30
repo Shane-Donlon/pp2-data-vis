@@ -416,8 +416,7 @@ const main = async () => {
     <thead>
       <tr>
         <th>Revenue</th>
-        <th>Budget</th>
-        <th>Difference</th>
+        <th>Vote Average</th>
       </tr>
     </thead>
     <tbody>
@@ -430,7 +429,6 @@ const main = async () => {
     <tr class="mbyTableRow">
       <td>${movies.x}</td>
       <td>${movies.y}</td>
-      <td>${movies.y - movies.x}</td>
     </tr>
   `;
 
@@ -472,8 +470,7 @@ const main = async () => {
       <tr>
         <th>Year</th>
         <th>Revenue</th>
-        <th>Budget</th>
-        <th>Difference</th>
+        <th>Vote Average</th>
       </tr>
     </thead>
     <tbody>
@@ -487,7 +484,6 @@ const main = async () => {
       <td>${sliderValue}</td>
       <td>${movies.x}</td>
       <td>${movies.y}</td>
-      <td>${movies.y - movies.x}</td>
     </tr>
   `;
 
