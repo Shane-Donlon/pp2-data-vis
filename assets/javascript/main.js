@@ -164,12 +164,12 @@ const main = async () => {
     }
     mbySlider.addEventListener("input", updateChart);
     let mbyButton = document.querySelector(".resetmoviesByYearChart");
-    let canvasWrapper = document.querySelector(
+    let mbycanvasWrapper = document.querySelector(
       ".canvas-wrapper-moviesByYearChart"
     );
     mbyButton.addEventListener("click", () => {
-      canvasWrapper.innerHTML = null;
-      canvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
+      mbycanvasWrapper.innerHTML = null;
+      mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
       moviesByYearChart();
     });
   }
@@ -241,6 +241,7 @@ const main = async () => {
         },
       },
     };
+
     // sr only table on load
     let languagePieTableWrapper = document.querySelector(
       ".languagePie-table-wrapper"
@@ -270,9 +271,19 @@ const main = async () => {
 </table>
 `;
     languagePieTableWrapper.innerHTML = languagePieTableHtml;
-    function updatePieChart(e) {}
 
     let moviveLanguageChart = new Chart(pieChartArea, config);
+    let resetlanguagePieChartBtn = document.querySelector(
+      ".resetlanguagePieChart"
+    );
+    let languagePieCanvasWrapper = document.querySelector(
+      ".language-pie-canvas-wrapper"
+    );
+    resetlanguagePieChartBtn.addEventListener("click", () => {
+      languagePieCanvasWrapper.innerHTML = null;
+      languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
+      pieChart();
+    });
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
       let result = pieDataOnInput.filter((d) => d.year === sliderValue);
