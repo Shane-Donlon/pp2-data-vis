@@ -163,9 +163,11 @@ const main = async () => {
       moviesReleasedChart.update();
     }
     mbySlider.addEventListener("input", updateChart);
-    let button = document.querySelector(".reset");
-    let canvasWrapper = document.querySelector(".canvas-wrapper");
-    button.addEventListener("click", () => {
+    let mbyButton = document.querySelector(".resetmoviesByYearChart");
+    let canvasWrapper = document.querySelector(
+      ".canvas-wrapper-moviesByYearChart"
+    );
+    mbyButton.addEventListener("click", () => {
       canvasWrapper.innerHTML = null;
       canvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
       moviesByYearChart();
