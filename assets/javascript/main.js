@@ -332,12 +332,7 @@ const main = async () => {
     let scatterRaw = flatRollup(
       rawData,
       (v) => v.length,
-
-      (d) => {
-        if (d.budget != 0) {
-          return d.budget;
-        }
-      },
+      (d) => d.vote_average,
       (d) => {
         if (d.revenue != 0) {
           return d.revenue;
@@ -349,25 +344,22 @@ const main = async () => {
       rawData,
       (v) => v.length,
       (d) => d.release_date,
-      (d) => {
-        if (d.budget != 0) {
-          return d.budget;
-        }
-      },
+      (d) => d.vote_average,
       (d) => {
         if (d.revenue != 0) {
           return d.revenue;
         }
       }
     );
-    let scatterDataforInputChart = scatterDataOnInput.map((language, index) => {
+    console.log(scatterDataOnInput);
+    let scatterDataforInputChart = scatterDataOnInput.map((movie, index) => {
       let moviesData = {};
       moviesData.year = {};
       moviesData.x = {};
       moviesData.y = {};
-      moviesData.year = language[0];
-      moviesData.x = language[1];
-      moviesData.y = language[2];
+      moviesData.year = movie[0];
+      moviesData.y = movie[1];
+      moviesData.x = movie[2];
       return moviesData;
     });
 
@@ -380,16 +372,16 @@ const main = async () => {
       // movieData.r = {};
       // movieData.r = 15;
       // movie[0] is budget
-      movieData.x = movie[0];
+      movieData.y = movie[0];
       // movie[1] is revenue
-      movieData.y = movie[1];
+      movieData.x = movie[1];
       return movieData;
     });
 
     const data = {
       datasets: [
         {
-          label: "Distribution of Budget & Revenue for All Years",
+          label: "Distribution of Vote Average & Revenue for All Years",
           data: scatterDataOnLoad,
         },
       ],
@@ -470,9 +462,9 @@ const main = async () => {
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
-      scatterChart.data.datasets[0].label = `Distribution of Budget & Revenue for year ${sliderValue}`;
+      scatterChart.data.datasets[0].label = `Distribution of Vote Average & Revenue for year ${sliderValue}`;
       scatterChart.data.datasets[0].data = result;
-      scatterChart.options.scales.x.type = "linear";
+      // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
       revBudgetTableHtml = `
     <table class="visually-hidden" tabindex="0">
