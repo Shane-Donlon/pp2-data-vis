@@ -182,8 +182,6 @@ const main = async () => {
       }
     );
 
-    console.log(pieDataOnLoad);
-
     let pieDataForInput = flatRollup(
       rawData,
       (v) => v.length,
@@ -260,6 +258,7 @@ const main = async () => {
 </table>
 `;
     languagePieTableWrapper.innerHTML = languagePieTableHtml;
+    function updatePieChart(e) {}
 
     let moviveLanguageChart = new Chart(pieChartArea, config);
     languagePieSlider.addEventListener("input", (e) => {
@@ -270,6 +269,33 @@ const main = async () => {
       moviveLanguageChart.data.datasets[0].data = result.map(
         (d) => d.languageCount
       );
+      languagePieTableHtml = `
+      <table class="visually-hidden" tabindex="0">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Language</th>
+          <th>Count of Movies</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+      for (movies of pieDataOnInput) {
+        let languagePieTableRow = `
+      <tr class="mbyTableRow">
+        <td>${sliderValue}</td>
+        <td>${movies.language}</td>
+        <td>${movies.languageCount}</td>
+      </tr>
+    `;
+        languagePieTableHtml += languagePieTableRow;
+      }
+      languagePieTableHtml += `
+    </tbody>
+  </table>
+  `;
+      languagePieTableWrapper.innerHTML = languagePieTableHtml;
       moviveLanguageChart.update();
     });
   }
