@@ -31,6 +31,16 @@
     </header>
 
     <main id="main">
+      <label for="accessibilityPreferences"
+        >Toggle accessbility tables on</label
+      >
+      <input
+        type="checkbox"
+        name="accessibilityPreferences"
+        id="accessibilityPreferences"
+        class="accessibilityPreferences"
+      />
+      <button class="savePreferences">Save</button>
       <!-- mby= moviesbyyear -->
       <div class="chart-wrapper">
         <input
@@ -41,7 +51,7 @@
           step="1"
         />
         <button class="reset resetmoviesByYearChart">Reset</button>
-        <div class="mby-table-wrapper table-wrapper"></div>
+        <div class="mby-table-wrapper table-wrapper display-none"></div>
 
         <div class="canvas-wrapper-moviesByYearChart">
           <canvas id="moviesByYearChart"></canvas>
@@ -56,7 +66,7 @@
           step="1"
         />
         <button class="reset resetlanguagePieChart">Reset</button>
-        <div class="languagePie-table-wrapper table-wrapper"></div>
+        <div class="languagePie-table-wrapper table-wrapper display-none"></div>
         <div class="language-pie-canvas-wrapper">
           <canvas id="languagePieArea"></canvas>
         </div>
@@ -71,7 +81,7 @@
           step="1"
         />
         <button class="reset resetrevBudgetChart">Reset</button>
-        <div class="revBudget-table-wrapper table-wrapper"></div>
+        <div class="revBudget-table-wrapper table-wrapper display-none"></div>
         <div class="revBudget-canvas-wrapper">
           <canvas id="revBudgetArea"></canvas>
         </div>

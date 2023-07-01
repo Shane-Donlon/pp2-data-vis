@@ -20,8 +20,8 @@ const { csv, flatGroup, flatRollup, extent } = d3;
 // barChart
 const main = async () => {
   const rawData = await csv(csvUrl, parseData);
-  let sliderMinMax = extent(rawData, (d) => d.release_date);
 
+  let sliderMinMax = extent(rawData, (d) => d.release_date);
   // bar chart movies by Year
   function moviesByYearChart() {
     // Data for Bar Chart on load
@@ -89,7 +89,7 @@ const main = async () => {
     // table
     let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
     let mbyTableHtml = `
-    <table class="visually-hidden" tabindex="0">
+    <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
         <th>Year</th>
@@ -134,7 +134,7 @@ const main = async () => {
       // sr only table on change
       mbyTableWrapper.innerHTML = null;
       mbyTableHtml = `
-        <table class="visually-hidden" tabindex="0">
+      <table class="visually-hidden table" tabindex="0">
           <thead>
             <tr>
               <th>Year</th>
@@ -248,7 +248,7 @@ const main = async () => {
       ".languagePie-table-wrapper"
     );
     let languagePieTableHtml = `
-    <table class="visually-hidden" tabindex="0">
+    <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
         <th>Language</th>
@@ -295,7 +295,7 @@ const main = async () => {
         (d) => d.languageCount
       );
       languagePieTableHtml = `
-      <table class="visually-hidden" tabindex="0">
+      <table class="visually-hidden table" tabindex="0">
       <thead>
         <tr>
           <th>Year</th>
@@ -351,7 +351,6 @@ const main = async () => {
         }
       }
     );
-    console.log(scatterDataOnInput);
     let scatterDataforInputChart = scatterDataOnInput.map((movie, index) => {
       let moviesData = {};
       moviesData.year = {};
@@ -412,7 +411,7 @@ const main = async () => {
       ".revBudget-table-wrapper"
     );
     let revBudgetTableHtml = `
-    <table class="visually-hidden" tabindex="0">
+    <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
         <th>Revenue</th>
@@ -465,7 +464,7 @@ const main = async () => {
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
       revBudgetTableHtml = `
-    <table class="visually-hidden" tabindex="0">
+      <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
         <th>Year</th>
@@ -496,6 +495,43 @@ const main = async () => {
 `;
       revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
     });
+    let accessibilityPreferencesCheckBox = document.querySelector(
+      ".accessibilityPreferences"
+    );
+    let accessbilityTables = document.querySelectorAll(".table-wrapper");
+
+    let savePreferencs = document.querySelector(".savePreferences");
+
+    function checkAccessibilityPreferences() {
+      if (localStorage.getItem("accessbilityTables") === "on") {
+        accessibilityPreferencesCheckBox.checked = true;
+        accessbilityTables.forEach((table) => {
+          if (table.classList.contains("dipslay-none")) {
+            table.classList.remove("display-none");
+          }
+        });
+      } else if (localStorage.getItem("accessbilityTables") === "off") {
+        accessibilityPreferencesCheckBox.checked = false;
+        accessbilityTables.forEach((table) => {
+          table.classList.add("display-none");
+        });
+      }
+    }
+
+    savePreferencs.addEventListener("click", saveAccessilbityPreferences);
+    function saveAccessilbityPreferences() {
+      if (accessibilityPreferences.checked === true) {
+        localStorage.setItem("accessbilityTables", "on");
+
+        accessbilityTables.forEach((table) => {
+          table.classList.remove("display-none");
+        });
+      } else {
+        localStorage.setItem("accessbilityTables", "off");
+      }
+      checkAccessibilityPreferences();
+    }
+    checkAccessibilityPreferences();
   }
 
   // functions to call charts

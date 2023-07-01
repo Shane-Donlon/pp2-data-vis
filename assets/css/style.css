@@ -22,3 +22,7 @@ body {
 p {
   max-width: 75ch;
 }
+
+.display-none {
+  display: none;
+}
