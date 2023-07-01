@@ -31,15 +31,25 @@
     </header>
 
     <main id="main">
-      <label for="accessibilityPreferences"
-        >Toggle accessbility tables on</label
-      >
-      <input
-        type="checkbox"
-        name="accessibilityPreferences"
-        id="accessibilityPreferences"
-        class="accessibilityPreferences"
-      />
+      <span>Toggle accessbility tables</span>
+      <div class="radio-wrapper-shown flex">
+        <label for="tablesShown" class="tablesShownLabel">On</label>
+        <input
+          type="radio"
+          name="tablesShown"
+          id="tablesShown"
+          class="tablesShown"
+        />
+      </div>
+      <div class="radio-wrapper-hidden flex display-none">
+        <label for="tablesHidden" class="tablesHiddenLabel">Off</label>
+        <input
+          type="radio"
+          name="tablesHidden"
+          id="tablesHidden"
+          class="tablesHidden"
+        />
+      </div>
       <button class="savePreferences">Save</button>
       <!-- mby= moviesbyyear -->
       <div class="chart-wrapper">

@@ -495,23 +495,22 @@ const main = async () => {
 `;
       revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
     });
-    let accessibilityPreferencesCheckBox = document.querySelector(
-      ".accessibilityPreferences"
-    );
-    let accessbilityTables = document.querySelectorAll(".table-wrapper");
 
+    let accessbilityTables = document.querySelectorAll(".table-wrapper");
+    let tablesHidden = document.querySelector(".tablesHidden");
+    let tablesShown = document.querySelector(".tablesShown");
+    let radioWrapperHidden = document.querySelector(".radio-wrapper-hidden");
+    let radioWrapperShown = document.querySelector(".radio-wrapper-shown");
     let savePreferencs = document.querySelector(".savePreferences");
 
     function checkAccessibilityPreferences() {
-      if (localStorage.getItem("accessbilityTables") === "on") {
-        accessibilityPreferencesCheckBox.checked = true;
+      if (localStorage.getItem("accessbilityTables") === "shown") {
         accessbilityTables.forEach((table) => {
           if (table.classList.contains("dipslay-none")) {
             table.classList.remove("display-none");
           }
         });
-      } else if (localStorage.getItem("accessbilityTables") === "off") {
-        accessibilityPreferencesCheckBox.checked = false;
+      } else if (localStorage.getItem("accessbilityTables") === "hidden") {
         accessbilityTables.forEach((table) => {
           table.classList.add("display-none");
         });
@@ -520,14 +519,20 @@ const main = async () => {
 
     savePreferencs.addEventListener("click", saveAccessilbityPreferences);
     function saveAccessilbityPreferences() {
-      if (accessibilityPreferences.checked === true) {
-        localStorage.setItem("accessbilityTables", "on");
-
+      if (tablesShown.checked === true) {
+        localStorage.setItem("accessbilityTables", "shown");
+        radioWrapperShown.classList.add("display-none");
+        radioWrapperHidden.classList.remove("display-none");
         accessbilityTables.forEach((table) => {
           table.classList.remove("display-none");
         });
-      } else {
-        localStorage.setItem("accessbilityTables", "off");
+        tablesShown.checked = false;
+      }
+      if (tablesHidden.checked === true) {
+        localStorage.setItem("accessbilityTables", "hidden");
+        radioWrapperHidden.classList.add("display-none");
+        radioWrapperShown.classList.remove("display-none");
+        tablesHidden.checked = false;
       }
       checkAccessibilityPreferences();
     }
