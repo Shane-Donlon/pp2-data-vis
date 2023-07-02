@@ -34,7 +34,25 @@ body {
 .data-source-h2 {
   margin-inline: auto;
 }
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.accessibility-tables {
+  transform: translateY(-1000%);
+  margin-block: 1em;
+}
+.accessibility-tables:focus-within,
+.accessibility-tables:focus {
+  transform: translateY(0);
+  transition: 500ms ease;
+}
+.accessibility-tables > * {
+  margin-right: 0.5em;
+}
 p {
   max-width: 75ch;
 }

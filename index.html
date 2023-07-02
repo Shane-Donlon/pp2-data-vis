@@ -56,28 +56,31 @@
         <!-- end of title -wrapper -->
       </section>
       <main id="main">
-        <span>Toggle accessbility tables</span>
-        <div class="radio-wrapper-shown flex">
-          <label for="tablesShown" class="tablesShownLabel">On</label>
-          <input
-            type="radio"
-            name="tablesShown"
-            id="tablesShown"
-            class="tablesShown"
-          />
-        </div>
-        <!-- end of radio wrapper shown -->
-        <div class="radio-wrapper-hidden flex display-none">
-          <label for="tablesHidden" class="tablesHiddenLabel">Off</label>
-          <input
-            type="radio"
-            name="tablesHidden"
-            id="tablesHidden"
-            class="tablesHidden"
-          />
-        </div>
-        <!-- end of radio wrapper hidden -->
-        <button class="savePreferences">Save</button>
+        <section class="accessibility-tables flex" tabindex="0">
+          <p>Toggle accessibility tables</p>
+          <div class="radio-wrapper-shown">
+            <label for="tablesShown" class="tablesShownLabel">On</label>
+            <input
+              type="radio"
+              name="tablesShown"
+              id="tablesShown"
+              class="tablesShown"
+            />
+          </div>
+          <!-- end of radio wrapper shown -->
+          <div class="radio-wrapper-hidden display-none">
+            <label for="tablesHidden" class="tablesHiddenLabel">Off</label>
+            <input
+              type="radio"
+              name="tablesHidden"
+              id="tablesHidden"
+              class="tablesHidden"
+            />
+          </div>
+          <!-- end of radio wrapper hidden -->
+          <button class="savePreferences">Save</button>
+        </section>
+
         <!-- mby= moviesbyyear -->
         <div class="chart-wrapper">
           <input
