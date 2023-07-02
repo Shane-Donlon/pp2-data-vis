@@ -41,7 +41,7 @@
         <div class="title-wrapper">
           <h1 class="h1">Movie Dashboard</h1>
           <h2 class="h2 data-source-h2">
-            Visit the Data Source Page:
+            Data Source:
             <a
               class="link data-source-link"
               title="Open Kaggle Website in new tab"
@@ -49,10 +49,11 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit the Kaggle Website for the source data (opens in a new tab)"
-              >here</a
+              >Kaggle</a
             >
           </h2>
         </div>
+        <!-- end of title -wrapper -->
       </section>
       <main id="main">
         <span>Toggle accessbility tables</span>
@@ -65,6 +66,7 @@
             class="tablesShown"
           />
         </div>
+        <!-- end of radio wrapper shown -->
         <div class="radio-wrapper-hidden flex display-none">
           <label for="tablesHidden" class="tablesHiddenLabel">Off</label>
           <input
@@ -74,6 +76,7 @@
             class="tablesHidden"
           />
         </div>
+        <!-- end of radio wrapper hidden -->
         <button class="savePreferences">Save</button>
         <!-- mby= moviesbyyear -->
         <div class="chart-wrapper">
@@ -90,6 +93,7 @@
             <canvas id="moviesByYearChart"></canvas>
           </div>
         </div>
+        <!-- end of chart -wrapper -->
         <div class="chart-wrapper">
           <input
             type="range"
@@ -106,6 +110,7 @@
             <canvas id="languagePieArea"></canvas>
           </div>
         </div>
+        <!-- end of chart -wrapper -->
         <div class="chart-wrapper">
           <input
             type="range"
@@ -120,8 +125,10 @@
             <canvas id="revBudgetArea"></canvas>
           </div>
         </div>
+        <!-- end of chart -wrapper -->
       </main>
     </div>
+    <!-- end of content -wrapper -->
 
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
