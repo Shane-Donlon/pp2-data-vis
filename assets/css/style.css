@@ -5,16 +5,34 @@
 :root {
   --fs-400: 1rem;
   --fw-regualar: 400;
+  --fw-bold: 600;
+  --large-font-clamp: clamp(2rem, 1.6364rem + 1.8182vw, 3rem);
 }
 
 body {
   font-family: "Noto Serif", serif;
 }
 
-/* reminders */
-.container {
-  width: 80%;
-  max-width: 1200px;
+.content-wrapper {
+  width: min(100% - 3rem, 1500px);
+  margin-inline: auto;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 1em;
+  text-align: center;
+}
+
+.h1 {
+  font-size: var(--large-font-clamp);
+  font-weight: var(--fw-bold);
+  flex: 1;
+}
+
+.data-source-h2 {
+  margin-inline: auto;
 }
 
 p {
