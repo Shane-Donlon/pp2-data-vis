@@ -24,6 +24,7 @@ const main = async () => {
   let sliderMinMax = extent(rawData, (d) => d.release_date);
   // bar chart movies by Year
   function moviesByYearChart() {
+    Chart.defaults.color = "#ffffff";
     // Data for Bar Chart on load
     let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
@@ -58,6 +59,7 @@ const main = async () => {
       return genreData;
     });
 
+    function responsiveChartTitle() {}
     // chart data
     const data = {
       labels: dataForMoviesByYearChart.map((d) => d.year),
@@ -77,6 +79,10 @@ const main = async () => {
           title: {
             display: true,
             text: "Total Movies Produced By Year",
+            font: {
+              size: 50,
+              // color: white,
+            },
           },
         },
         scales: {

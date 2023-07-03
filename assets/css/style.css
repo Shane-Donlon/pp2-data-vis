@@ -117,7 +117,7 @@ p {
 }
 
 .input-wrapper {
-  width: max-content;
+  text-align: center;
   margin-inline: auto;
   gap: 0.5em;
 }
@@ -134,7 +134,6 @@ p {
 }
 
 section:not(:first-child) {
-  padding: 2em;
   background-color: var(--bg-clr-secondary);
   margin-block: 2em;
 }
