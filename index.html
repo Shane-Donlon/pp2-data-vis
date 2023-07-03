@@ -83,14 +83,21 @@
 
         <!-- mby= moviesbyyear -->
         <div class="chart-wrapper">
-          <input
-            type="range"
-            name="mbySlider"
-            id="mbySlider"
-            class="mbySlider inputSlider"
-            step="1"
-          />
-          <button class="reset resetmoviesByYearChart btn">Reset</button>
+          <div class="input-wrapper">
+            <label for="mbySlider"
+              >Use the slider to drill-down the
+              <span class="chart-span span">chart</span>
+              <span class="table-span span">table</span></label
+            >
+            <input
+              type="range"
+              name="mbySlider"
+              id="mbySlider"
+              class="mbySlider inputSlider"
+              step="1"
+            />
+            <button class="reset resetmoviesByYearChart btn">Reset</button>
+          </div>
           <div class="mby-table-wrapper table-wrapper display-none"></div>
           <div class="canvas-wrapper-moviesByYearChart">
             <canvas id="moviesByYearChart"></canvas>
@@ -98,14 +105,21 @@
         </div>
         <!-- end of chart -wrapper -->
         <div class="chart-wrapper">
-          <input
-            type="range"
-            name="languagePieSlider"
-            id="languagePieSlider"
-            class="languagePieSlider inputSlider"
-            step="1"
-          />
-          <button class="reset resetlanguagePieChart btn">Reset</button>
+          <div class="input-wrapper">
+            <label for="languagePieSlider">
+              Use the slider to drill-down the
+              <span class="chart-span span">chart</span>
+              <span class="table-span span">table</span>
+            </label>
+            <input
+              type="range"
+              name="languagePieSlider"
+              id="languagePieSlider"
+              class="languagePieSlider inputSlider"
+              step="1"
+            />
+            <button class="reset resetlanguagePieChart btn">Reset</button>
+          </div>
           <div
             class="languagePie-table-wrapper table-wrapper display-none"
           ></div>
@@ -115,14 +129,21 @@
         </div>
         <!-- end of chart -wrapper -->
         <div class="chart-wrapper">
-          <input
-            type="range"
-            name="revBudgetSlider"
-            id="revBudgetSlider"
-            class="revBudgetSlider inputSlider"
-            step="1"
-          />
-          <button class="reset resetrevBudgetChart btn">Reset</button>
+          <div class="input-wrapper">
+            <label for="revBudgetSlider">
+              Use the slider to drill-down the
+              <span class="chart-span span">chart</span>
+              <span class="table-span span">table</span>
+            </label>
+            <input
+              type="range"
+              name="revBudgetSlider"
+              id="revBudgetSlider"
+              class="revBudgetSlider inputSlider"
+              step="1"
+            />
+            <button class="reset resetrevBudgetChart btn">Reset</button>
+          </div>
           <div class="revBudget-table-wrapper table-wrapper display-none"></div>
           <div class="revBudget-canvas-wrapper">
             <canvas id="revBudgetArea"></canvas>
