@@ -84,6 +84,8 @@ const main = async () => {
             beginAtZero: true,
           },
         },
+        responsive: true,
+        maintainAspectRatio: false,
       },
     };
     // table
@@ -233,6 +235,7 @@ const main = async () => {
       options: {
         scales: {},
         responsive: true,
+        maintainAspectRatio: false,
 
         plugins: {
           title: {
@@ -405,6 +408,7 @@ const main = async () => {
           },
         },
         responsive: true,
+        maintainAspectRatio: false,
       },
     };
     let revBudgetTableWrapper = document.querySelector(
