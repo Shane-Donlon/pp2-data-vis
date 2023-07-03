@@ -94,3 +94,15 @@ p {
   transform-origin: top left;
   color: black;
 }
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.inputSlider {
+  accent-color: black;
+}
+
+.inputSlider:hover {
+  cursor: grab;
+}
