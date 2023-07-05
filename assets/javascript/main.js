@@ -30,6 +30,9 @@ const main = async () => {
     // slider to filter data
     const mbySlider = document.querySelector("#mbySlider");
 
+    // set font size for all charts responsive text JS Media Query see event listener at end also
+    chartFontSize();
+
     //   ChartJS Canvas for chart
     let barChartArea = document
       .querySelector("#moviesByYearChart")
@@ -59,7 +62,6 @@ const main = async () => {
       return genreData;
     });
 
-    function responsiveChartTitle() {}
     // chart data
     const data = {
       labels: dataForMoviesByYearChart.map((d) => d.year),
@@ -79,10 +81,6 @@ const main = async () => {
           title: {
             display: true,
             text: "Total Movies Produced By Year",
-            font: {
-              size: 50,
-              // color: white,
-            },
           },
         },
         scales: {
@@ -94,6 +92,7 @@ const main = async () => {
         maintainAspectRatio: false,
       },
     };
+
     // table
     let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
     let mbyTableHtml = `
@@ -547,6 +546,22 @@ const main = async () => {
       checkAccessibilityPreferences();
     }
     checkAccessibilityPreferences();
+  }
+
+  // responsive text JS Media Query
+  window.addEventListener("resize", chartFontSize);
+
+  function chartFontSize() {
+    let windowWidth = window.outerWidth;
+
+    if (windowWidth > 900) {
+      Chart.defaults.plugins.title.font.size = 40;
+    } else if (windowWidth <= 900 && windowWidth > 600) {
+      Chart.defaults.plugins.title.font.size = 20;
+    } else if (windowWidth <= 600 && windowWidth >= 320) {
+      Chart.defaults.plugins.title.font.size = 10;
+    } else {
+    }
   }
 
   // functions to call charts
