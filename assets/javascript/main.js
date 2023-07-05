@@ -464,6 +464,10 @@ const main = async () => {
       options: {
         scales: {
           x: {
+            title: {
+              display: true,
+              text: "Revenue",
+            },
             ticks: {
               callback: formatDollarxAxis,
             },
@@ -475,6 +479,10 @@ const main = async () => {
             type: "logarithmic",
           },
           y: {
+            title: {
+              display: true,
+              text: "Vote Avg",
+            },
             grid: {
               display: false,
             },
