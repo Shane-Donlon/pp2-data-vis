@@ -451,12 +451,22 @@ const main = async () => {
         },
       ],
     };
+
+    function formatDollarxAxis(value, index, ticks) {
+      return (
+        "$" + Chart.Ticks.formatters.numeric.apply(this, [value, index, ticks])
+      );
+    }
+
     const config = {
       type: "scatter",
       data: data,
       options: {
         scales: {
           x: {
+            ticks: {
+              callback: formatDollarxAxis,
+            },
             grid: {
               display: false,
             },
