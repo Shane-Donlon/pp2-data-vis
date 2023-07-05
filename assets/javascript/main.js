@@ -258,8 +258,8 @@ const main = async () => {
           label: "Count of Movies",
           data: pieDataOnLoad.map((d) => d[1]),
           // borderColor English, non-English
-          borderColor: ["#ffffff", chartColors[5]],
-          backgroundColor: ["#ffffff", chartColors[5]],
+          borderColor: ["#12739f", chartColors[5]],
+          backgroundColor: ["#12739f", chartColors[5]],
         },
       ],
     };
@@ -272,6 +272,11 @@ const main = async () => {
         maintainAspectRatio: false,
 
         plugins: {
+          labels: {
+            render: "percentage",
+            fontSize: 16,
+            fontColor: "#fff",
+          },
           title: {
             display: true,
             text: `Movies by language all years`,
