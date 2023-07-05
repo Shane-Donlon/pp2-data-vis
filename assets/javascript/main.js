@@ -107,6 +107,7 @@ const main = async () => {
           },
           tooltip: {
             interaction: {
+              // returns index for items to be used to index x axis to get year / genre
               intersect: false,
               mode: "index",
             },
@@ -221,6 +222,7 @@ const main = async () => {
     );
     // btn to reset chart
     mbyButton.addEventListener("click", () => {
+      mbySlider.value = sliderMinMax[0];
       mbycanvasWrapper.innerHTML = null;
       mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
       moviesByYearChart();
@@ -343,6 +345,7 @@ const main = async () => {
     );
     // btn to reset chart
     resetlanguagePieChartBtn.addEventListener("click", () => {
+      languagePieSlider.value = sliderMinMax[0];
       languagePieCanvasWrapper.innerHTML = null;
       languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
       pieChart();
@@ -513,6 +516,7 @@ const main = async () => {
       ".revBudget-canvas-wrapper"
     );
     revBudgetResetBtn.addEventListener("click", () => {
+      revBudgetSlider.value = sliderMinMax[0];
       revBudgetCanvasWrapper.innerHTML = null;
       revBudgetCanvasWrapper.innerHTML = `<canvas id="revBudgetArea"></canvas>`;
       revBudget();
