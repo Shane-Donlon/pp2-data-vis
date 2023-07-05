@@ -22,6 +22,26 @@ const main = async () => {
   const rawData = await csv(csvUrl, parseData);
 
   let sliderMinMax = extent(rawData, (d) => d.release_date);
+
+  let chartColors = [
+    "#f5cc01",
+    "#f0a52e",
+    "#f46928",
+    "#b31326",
+    "#be1856",
+    "#d84c7b",
+    "#a38cd7",
+    "#7030a0",
+    "#b9d238",
+    "#00a23a",
+    "#105547",
+    "#01aaca",
+    "#12739f",
+    "#0e497d",
+    "#37264f",
+    "#512a5a",
+  ];
+
   // bar chart movies by Year
   function moviesByYearChart() {
     Chart.defaults.color = "#ffffff";
@@ -69,6 +89,8 @@ const main = async () => {
         {
           label: "Movies Released",
           data: dataForMoviesByYearChart.map((d) => d.count),
+          borderColor: chartColors[0],
+          backgroundColor: chartColors[0],
         },
       ],
     };
@@ -131,12 +153,14 @@ const main = async () => {
       config.type = "bar";
       // stop bar chart bars bleeding into yAxis area
       config.options.scales.x.offset = true;
+
       let result = filteredDataGenres.filter(
         (d) => d.release_date === sliderValue
       );
       moviesReleasedChart.options.plugins.title.text = `Distrbution of Movies by Genre For Year ${sliderValue}`;
-
-      moviesReleasedChart.data.labels = result.map((d) => d.genres);
+      (moviesReleasedChart.data.datasets[0].borderColor = chartColors),
+        (moviesReleasedChart.data.datasets[0].backgroundColor = chartColors),
+        (moviesReleasedChart.data.labels = result.map((d) => d.genres));
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
       );
@@ -233,6 +257,9 @@ const main = async () => {
         {
           label: "Count of Movies",
           data: pieDataOnLoad.map((d) => d[1]),
+          // borderColor English, non-English
+          borderColor: ["#ffffff", chartColors[5]],
+          backgroundColor: ["#ffffff", chartColors[5]],
         },
       ],
     };
@@ -390,8 +417,10 @@ const main = async () => {
     const data = {
       datasets: [
         {
-          label: "Distribution of Vote Average & Revenue for All Years",
+          label: "Vote Average & Revenue for All Years",
           data: scatterDataOnLoad,
+          borderColor: chartColors,
+          backgroundColor: chartColors,
         },
       ],
     };
@@ -470,7 +499,7 @@ const main = async () => {
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
-      scatterChart.data.datasets[0].label = `Distribution of Vote Average & Revenue for year ${sliderValue}`;
+      scatterChart.data.datasets[0].label = `Vote Average & Revenue for year ${sliderValue}`;
       scatterChart.data.datasets[0].data = result;
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
@@ -555,7 +584,6 @@ const main = async () => {
 
   function chartFontSize() {
     let windowWidth = window.outerWidth;
-
     if (windowWidth > 900) {
       Chart.defaults.plugins.title.font.size = 40;
     } else if (windowWidth <= 900 && windowWidth > 600) {
@@ -563,6 +591,7 @@ const main = async () => {
     } else if (windowWidth <= 600 && windowWidth >= 320) {
       Chart.defaults.plugins.title.font.size = 10;
     } else {
+      Chart.defaults.plugins.title.font.size = 5;
     }
   }
 
