@@ -129,6 +129,8 @@ const main = async () => {
       let sliderValue = +e.target.value;
       // on input change from line chart to bar chart
       config.type = "bar";
+      // stop bar chart bars bleeding into yAxis area
+      config.options.scales.x.offset = true;
       let result = filteredDataGenres.filter(
         (d) => d.release_date === sliderValue
       );
