@@ -261,6 +261,7 @@ const main = async () => {
         }
       }
     );
+
     let pieDataOnInput = pieDataForInput.map((language, index) => {
       let moviesData = {};
       moviesData.year = {};
@@ -370,7 +371,7 @@ const main = async () => {
       <tbody>
   `;
 
-      for (movies of pieDataOnInput) {
+      for (movies of result) {
         languagePieTableRow = `
       <tr class="mbyTableRow">
         <td>${sliderValue}</td>
@@ -591,12 +592,14 @@ const main = async () => {
 
     function checkAccessibilityPreferences() {
       if (localStorage.getItem("accessbilityTables") === "shown") {
+        radioWrapperShown.classList.add("display-none");
+        radioWrapperHidden.classList.remove("display-none");
         accessbilityTables.forEach((table) => {
-          if (table.classList.contains("dipslay-none")) {
-            table.classList.remove("display-none");
-          }
+          table.classList.remove("display-none");
         });
       } else if (localStorage.getItem("accessbilityTables") === "hidden") {
+        radioWrapperHidden.classList.add("display-none");
+        radioWrapperShown.classList.remove("display-none");
         accessbilityTables.forEach((table) => {
           table.classList.add("display-none");
         });
@@ -642,6 +645,7 @@ const main = async () => {
   }
 
   // functions to call charts
+
   moviesByYearChart();
   pieChart();
   revBudget();
