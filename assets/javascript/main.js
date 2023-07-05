@@ -87,7 +87,6 @@ const main = async () => {
       labels: dataForMoviesByYearChart.map((d) => d.year),
       datasets: [
         {
-          label: "Movies Released",
           data: dataForMoviesByYearChart.map((d) => d.count),
           borderColor: chartColors[0],
           backgroundColor: chartColors[0],
@@ -95,14 +94,34 @@ const main = async () => {
       ],
     };
 
+    const customToolTip = (tooltipItems) => {
+      return `Movies Released: ${data.datasets[0].data[tooltipItems.parsed.x]}`;
+    };
     const config = {
       type: "line",
       data: data,
       options: {
         plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+            hover: {
+              // hover anywhere on chart to get tooltip to show by year
+              intersect: false,
+              mode: "index",
+            },
+            callbacks: {
+              label: customToolTip,
+            },
+          },
           title: {
             display: true,
-            text: "Total Movies Produced By Year",
+            text: "Total Movies Released By Year",
           },
         },
         scales: {
