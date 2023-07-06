@@ -22,7 +22,9 @@ const main = async () => {
   const rawData = await csv(csvUrl, parseData);
 
   let sliderMinMax = extent(rawData, (d) => d.release_date);
-
+  const prefersReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
   let chartColors = [
     "#f5cc01",
     "#f0a52e",
@@ -76,6 +78,7 @@ const main = async () => {
       let numberOfMovies = movieYears.length - 1;
       counter.setAttribute("data-years", numberOfMovies);
       counter.setAttribute("aria-valuetext", numberOfMovies);
+
       const incrementCounter = () => {
         let target = +counter.getAttribute("data-years");
         let increment = target / 1000;
@@ -84,11 +87,14 @@ const main = async () => {
           counter.innerText = `${Math.ceil(currentNumber + increment)}`;
           // counter.innerText = `${currentNumber + increment}`;
           setTimeout(incrementCounter, 500);
-        } else {
-          counter.innerText = target;
         }
       };
-      incrementCounter();
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
     }
     moviesByYearIncrementCounter();
 
