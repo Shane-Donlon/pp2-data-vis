@@ -75,7 +75,7 @@ const main = async () => {
       });
       let numberOfMovies = movieYears.length - 1;
       counter.setAttribute("data-years", numberOfMovies);
-
+      counter.setAttribute("aria-valuetext", numberOfMovies);
       const incrementCounter = () => {
         let target = +counter.getAttribute("data-years");
         let increment = target / 1000;
