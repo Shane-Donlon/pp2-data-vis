@@ -66,6 +66,31 @@ const main = async () => {
       movieData.count = movie[1].length;
       return movieData;
     });
+    function moviesByYearIncrementCounter() {
+      let movieYears = [];
+      let counter = document.querySelector(".counter");
+      counter.innerText = "0";
+      dataForMoviesByYearChart.map((year) => {
+        movieYears.push(year);
+      });
+      let numberOfMovies = movieYears.length - 1;
+      counter.setAttribute("data-years", numberOfMovies);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-years");
+        let increment = target / 1000;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+          // counter.innerText = `${currentNumber + increment}`;
+          setTimeout(incrementCounter, 500);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      incrementCounter();
+    }
+    moviesByYearIncrementCounter();
 
     let moviesByGenre = flatRollup(
       rawData,
