@@ -154,3 +154,8 @@ section:not(:first-child) {
   padding: 2em 1em;
   border-radius: 10px;
 }
+
+::selection {
+  background-color: white;
+  color: black;
+}
