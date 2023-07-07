@@ -68,6 +68,7 @@ const main = async () => {
       movieData.count = movie[1].length;
       return movieData;
     });
+    // function placed here to get data
     function moviesByYearIncrementCounter() {
       let movieYears = [];
       let counter = document.querySelector(".counter");
@@ -85,8 +86,10 @@ const main = async () => {
         let currentNumber = +counter.textContent;
         if (currentNumber < target) {
           counter.innerText = `${Math.ceil(currentNumber + increment)}`;
-          // counter.innerText = `${currentNumber + increment}`;
-          setTimeout(incrementCounter, 500);
+
+          setTimeout(incrementCounter, 400);
+        } else {
+          counter.innerText = target;
         }
       };
 
@@ -97,6 +100,39 @@ const main = async () => {
       }
     }
     moviesByYearIncrementCounter();
+
+    function numberOfMoviesIncrementCounter() {
+      let counter = document.querySelector(".number-of-movies-span");
+      counter.innerText = "0";
+      let numberOfMoviesInDatabase = 0;
+      rawData.forEach((e) => {
+        ++numberOfMoviesInDatabase;
+      });
+
+      let numberOfMovies = numberOfMoviesInDatabase;
+      counter.setAttribute("data-movies", numberOfMoviesInDatabase);
+      counter.setAttribute("aria-label", numberOfMoviesInDatabase);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-movies");
+        let increment = target / 950;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    numberOfMoviesIncrementCounter();
 
     let moviesByGenre = flatRollup(
       rawData,
@@ -193,6 +229,7 @@ const main = async () => {
 </table>
 `;
     mbyTableWrapper.innerHTML = mbyTableHtml;
+    // calling chart creation
     let moviesReleasedChart = new Chart(barChartArea, config);
 
     mbySlider.setAttribute("min", sliderMinMax[0]);
