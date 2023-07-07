@@ -136,11 +136,13 @@ p {
   min-height: 500px;
 }
 
-section:not(:first-child) {
+/* not first section, not cards section */
+section:not(:first-child):not(:nth-child(3)) {
   background-color: var(--bg-clr-secondary);
   margin-block: 2em;
   border-radius: 10px;
 }
+
 .grid-gtc {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -150,7 +152,7 @@ section:not(:first-child) {
 .card {
   text-align: center;
   font-size: 2em;
-  background-color: black;
+  background-color: var(--bg-clr-secondary);
   padding: 2em 1em;
   border-radius: 10px;
 }
