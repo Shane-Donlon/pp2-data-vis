@@ -153,6 +153,7 @@ p {
   text-align: center;
   font-size: 1.25em;
   background-color: var(--bg-clr-secondary);
+  padding-block: 0.5em;
 }
 
 ::selection {
@@ -176,9 +177,9 @@ p {
     align-self: center;
   }
 
-  .grid-gtc {
+  /* .grid-gtc {
     gap: 2.5em;
-  }
+  } */
   .chart-wrappermby {
     min-height: 100%;
   }
@@ -190,7 +191,7 @@ p {
   }
   .image-container > * {
     position: absolute;
-    height: max-content;
+    height: 55%;
   }
   .projector-img {
     top: 20px;
