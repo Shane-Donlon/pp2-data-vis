@@ -57,7 +57,7 @@
       </section>
       <main id="main">
         <section
-          class="accessibility-tables flex"
+          class="accessibility-tables flex bg-secondary"
           tabindex="0"
           aria-label="Use the below table to toggle the data tables"
         >
@@ -86,74 +86,90 @@
         </section>
 
         <!-- mby= moviesbyyear -->
-        <section
-          aria-label="Displays movies by year breakdown, on slider change, movies by genre for selected year"
-        >
-          <div class="chart-wrapper">
-            <div class="input-wrapper">
-              <label for="mbySlider"
-                >Use the slider to drill-down the
-                <span class="chart-span span">chart</span>
-                <span class="table-span span">table</span></label
-              >
-              <div class="flex">
-                <input
-                  type="range"
-                  name="mbySlider"
-                  id="mbySlider"
-                  class="mbySlider inputSlider"
-                  step="1"
-                  aria-label="Use keyboard or mouse to filter data by year"
-                />
-                <button
-                  class="reset resetmoviesByYearChart btn"
-                  aria-label="reset data"
+        <div class="grid">
+          <section
+            class="bg-secondary"
+            aria-label="Displays movies by year breakdown, on slider change, movies by genre for selected year"
+          >
+            <div class="chart-wrappermby">
+              <div class="input-wrapper">
+                <label for="mbySlider"
+                  >Use the slider to drill-down the
+                  <span class="chart-span span">chart</span>
+                  <span class="table-span span">table</span></label
                 >
-                  <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
-                </button>
+                <div class="flex">
+                  <input
+                    type="range"
+                    name="mbySlider"
+                    id="mbySlider"
+                    class="mbySlider inputSlider"
+                    step="1"
+                    aria-label="Use keyboard or mouse to filter data by year"
+                  />
+                  <button
+                    class="reset resetmoviesByYearChart btn"
+                    aria-label="reset data"
+                  >
+                    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!-- end flex -->
+              </div>
+              <!-- end input wrapper -->
+              <div class="mby-table-wrapper table-wrapper display-none"></div>
+              <div class="canvas-wrapper-moviesByYearChart canvas-wrapper">
+                <canvas id="moviesByYearChart" role="presentation"></canvas>
               </div>
             </div>
-            <div class="mby-table-wrapper table-wrapper display-none"></div>
-            <div class="canvas-wrapper-moviesByYearChart canvas-wrapper">
-              <canvas id="moviesByYearChart" role="presentation"></canvas>
+            <!-- end of chart -wrapper -->
+          </section>
+
+          <section aria-label="Cards dispalying high level data">
+            <div class="grid-gtc">
+              <div class="card">
+                <i class="fa-solid fa-clapperboard" aria-hidden="true"></i>
+                <h3 class="card-title h3">
+                  Number of movies: <br />
+                  <span class="card-span number-of-movies-span"></span>
+                </h3>
+              </div>
+              <!-- end card -->
+              <div class="card">
+                <i class="fa-solid fa-film" aria-hidden="true"></i>
+                <h3 class="card-title h3">
+                  <abbr title="average">Avg</abbr> Length in minutes:
+                  <br />
+                  <span class="card-span avg-runtime-span"></span>
+                </h3>
+              </div>
+              <!-- end card -->
+              <div class="card">
+                <i class="fa-solid fa-hands-clapping" aria-hidden="true"></i>
+                <h3 class="card-title h3">
+                  Number of movies above vote
+                  <abbr title="average">avg</abbr> 8:
+                  <br />
+                  <span class="card-span avg-vote-span"></span>
+                </h3>
+              </div>
+              <!-- end card -->
+              <div class="card">
+                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+                <h3 class="card-title h3">
+                  Number of years in dataset: <br /><span
+                    class="counter"
+                  ></span>
+                </h3>
+              </div>
+              <!-- end card -->
             </div>
-          </div>
-        </section>
-        <!-- end of chart -wrapper -->
-        <section aria-label="Cards dispalying high level data">
-          <div class="grid-gtc">
-            <div class="card">
-              <i class="fa-solid fa-clapperboard" aria-hidden="true"></i>
-              <h3 class="card-title h3">
-                Number of movies: <br />
-                <span class="card-span number-of-movies-span"></span>
-              </h3>
-            </div>
-            <div class="card">
-              <i class="fa-solid fa-film" aria-hidden="true"></i>
-              <h3 class="card-title h3">
-                <abbr title="average">Avg</abbr> Length in minutes:
-                <br />
-                <span class="card-span avg-runtime-span"></span>
-              </h3>
-            </div>
-            <div class="card">
-              <i class="fa-solid fa-hands-clapping" aria-hidden="true"></i>
-              <h3 class="card-title h3">
-                Number of movies above vote <abbr title="average">avg</abbr> 8:
-                <br />
-                <span class="card-span avg-vote-span"></span>
-              </h3>
-            </div>
-            <div class="card">
-              <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
-              <h3 class="card-title h3">
-                Number of years in dataset: <br /><span class="counter"></span>
-              </h3>
-            </div>
-          </div>
-        </section>
+            <!-- end of gtc  -->
+          </section>
+        </div>
+        <!-- end grid 1 -->
         <section
+          class="bg-secondary"
           aria-label="Displays movies by languages breakdown into English and Non-english movies, on slider change, movies by language for selected year"
         >
           <div class="chart-wrapper">
@@ -179,7 +195,9 @@
                   <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
               </div>
+              <!-- end flex -->
             </div>
+            <!-- end input wrapper -->
             <div
               class="languagePie-table-wrapper table-wrapper display-none"
             ></div>
@@ -190,6 +208,7 @@
         </section>
         <!-- end of chart -wrapper -->
         <section
+          class="bg-secondary"
           aria-label="Displays Vote Average against the revenue of the movie, on slider change to filter by year selected"
         >
           <div class="chart-wrapper">
@@ -217,7 +236,9 @@
                   <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
               </div>
+              <!-- end flex -->
             </div>
+            <!-- end input wrapper -->
             <div
               class="revBudget-table-wrapper table-wrapper display-none"
             ></div>
@@ -225,8 +246,8 @@
               <canvas id="revBudgetArea" role="presentation"></canvas>
             </div>
           </div>
+          <!-- end of chart -wrapper -->
         </section>
-        <!-- end of chart -wrapper -->
       </main>
     </div>
     <!-- end of content -wrapper -->

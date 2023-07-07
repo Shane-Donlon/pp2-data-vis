@@ -133,11 +133,11 @@ p {
 .canvas-wrapper {
   /* position relative is needed to make chart responsive */
   position: relative;
-  min-height: 500px;
+  /* min-height: 500px; */
 }
 
 /* not first section, not cards section */
-section:not(:first-child):not(:nth-child(3)) {
+.bg-secondary {
   background-color: var(--bg-clr-secondary);
   margin-block: 2em;
   border-radius: 10px;
@@ -151,10 +151,8 @@ section:not(:first-child):not(:nth-child(3)) {
 
 .card {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.25em;
   background-color: var(--bg-clr-secondary);
-  padding: 2em 1em;
-  border-radius: 10px;
 }
 
 ::selection {
@@ -165,4 +163,18 @@ section:not(:first-child):not(:nth-child(3)) {
 .link {
   color: white;
   text-underline-offset: 0.25em;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+    gap: 2em;
+  }
+  .chart-wrappermby {
+    min-height: 100%;
+  }
+  .canvas-wrapper-moviesByYearChart {
+    min-height: 500px;
+  }
 }
