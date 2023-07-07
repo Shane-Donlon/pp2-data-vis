@@ -159,3 +159,8 @@ section:not(:first-child) {
   background-color: white;
   color: black;
 }
+
+.link {
+  color: white;
+  text-underline-offset: 0.25em;
+}
