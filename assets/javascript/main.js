@@ -15,7 +15,7 @@ function parseData(data) {
   return data;
 }
 // destructing d3 to avoid d3.csv etc.. in code
-const { csv, flatGroup, flatRollup, extent } = d3;
+const { csv, flatGroup, flatRollup, extent, mean } = d3;
 
 // barChart
 const main = async () => {
@@ -133,6 +133,36 @@ const main = async () => {
       }
     }
     numberOfMoviesIncrementCounter();
+
+    function avgRunTimeIncrementCounter() {
+      let counter = document.querySelector(".avg-runtime-span");
+      counter.innerText = "0";
+
+      let runtime = Math.round(mean(rawData.map((d) => d.runtime)));
+
+      counter.setAttribute("data-avgRunTime", runtime);
+      counter.setAttribute("aria-label", runtime);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-avgRunTime");
+        let increment = target / 1000;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 65);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    avgRunTimeIncrementCounter();
 
     let moviesByGenre = flatRollup(
       rawData,
