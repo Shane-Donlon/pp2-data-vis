@@ -112,7 +112,10 @@ p {
   accent-color: var(--bg-clr-primary);
 }
 
-.inputSlider:hover {
+.inputSlider:hover,
+.inputSlider:focus-visible {
+  transition: accent-color 750ms ease;
+  accent-color: white;
   cursor: grab;
 }
 
