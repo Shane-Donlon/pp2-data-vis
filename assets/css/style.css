@@ -171,6 +171,14 @@ p {
     grid-template-columns: 2fr 0.5fr 0.5fr;
     gap: 2em;
   }
+
+  .align-self-center {
+    align-self: center;
+  }
+
+  .grid-gtc {
+    gap: 2.5em;
+  }
   .chart-wrappermby {
     min-height: 100%;
   }
@@ -182,6 +190,7 @@ p {
   }
   .image-container > * {
     position: absolute;
+    height: max-content;
   }
   .projector-img {
     top: 20px;
