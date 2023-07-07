@@ -177,4 +177,21 @@ p {
   .canvas-wrapper-moviesByYearChart {
     min-height: 500px;
   }
+  .image-container {
+    position: relative;
+  }
+  .image-container > * {
+    position: absolute;
+  }
+  .projector-img {
+    top: 20px;
+  }
+  .super-hero-img {
+    top: 100px;
+    transform: rotate(45deg);
+  }
+  .monster-img {
+    transform: rotate(-35deg);
+    top: 200px;
+  }
 }
