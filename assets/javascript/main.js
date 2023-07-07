@@ -15,7 +15,7 @@ function parseData(data) {
   return data;
 }
 // destructing d3 to avoid d3.csv etc.. in code
-const { csv, flatGroup, flatRollup, extent, mean } = d3;
+const { csv, flatGroup, flatRollup, extent, mean, sum } = d3;
 
 // barChart
 const main = async () => {
@@ -68,101 +68,6 @@ const main = async () => {
       movieData.count = movie[1].length;
       return movieData;
     });
-    // function placed here to get data
-    function moviesByYearIncrementCounter() {
-      let movieYears = [];
-      let counter = document.querySelector(".counter");
-      counter.innerText = "0";
-      dataForMoviesByYearChart.map((year) => {
-        movieYears.push(year);
-      });
-      let numberOfMovies = movieYears.length - 1;
-      counter.setAttribute("data-years", numberOfMovies);
-      counter.setAttribute("aria-label", numberOfMovies);
-
-      const incrementCounter = () => {
-        let target = +counter.getAttribute("data-years");
-        let increment = target / 1000;
-        let currentNumber = +counter.textContent;
-        if (currentNumber < target) {
-          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
-
-          setTimeout(incrementCounter, 400);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      if (!!prefersReducedMotion) {
-        counter.innerText = numberOfMovies;
-      } else {
-        incrementCounter();
-      }
-    }
-    moviesByYearIncrementCounter();
-
-    function numberOfMoviesIncrementCounter() {
-      let counter = document.querySelector(".number-of-movies-span");
-      counter.innerText = "0";
-      let numberOfMoviesInDatabase = 0;
-      rawData.forEach((e) => {
-        ++numberOfMoviesInDatabase;
-      });
-
-      let numberOfMovies = numberOfMoviesInDatabase;
-      counter.setAttribute("data-movies", numberOfMoviesInDatabase);
-      counter.setAttribute("aria-label", numberOfMoviesInDatabase);
-
-      const incrementCounter = () => {
-        let target = +counter.getAttribute("data-movies");
-        let increment = target / 950;
-        let currentNumber = +counter.textContent;
-        if (currentNumber < target) {
-          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
-
-          setTimeout(incrementCounter, 1);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      if (!!prefersReducedMotion) {
-        counter.innerText = numberOfMovies;
-      } else {
-        incrementCounter();
-      }
-    }
-    numberOfMoviesIncrementCounter();
-
-    function avgRunTimeIncrementCounter() {
-      let counter = document.querySelector(".avg-runtime-span");
-      counter.innerText = "0";
-
-      let runtime = Math.round(mean(rawData.map((d) => d.runtime)));
-
-      counter.setAttribute("data-avgRunTime", runtime);
-      counter.setAttribute("aria-label", runtime);
-
-      const incrementCounter = () => {
-        let target = +counter.getAttribute("data-avgRunTime");
-        let increment = target / 1000;
-        let currentNumber = +counter.textContent;
-        if (currentNumber < target) {
-          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
-
-          setTimeout(incrementCounter, 65);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      if (!!prefersReducedMotion) {
-        counter.innerText = numberOfMovies;
-      } else {
-        incrementCounter();
-      }
-    }
-    avgRunTimeIncrementCounter();
 
     let moviesByGenre = flatRollup(
       rawData,
@@ -740,6 +645,140 @@ const main = async () => {
     } else {
       Chart.defaults.plugins.title.font.size = 5;
     }
+
+    function moviesByYearIncrementCounter() {
+      let movieYears = [];
+      let counter = document.querySelector(".counter");
+      counter.innerText = "0";
+      let numberOfMoviesByYear = flatGroup(
+        rawData,
+        (d) => d.release_date
+      ).sort();
+      let numberOfMovies = numberOfMoviesByYear.length - 1;
+      counter.setAttribute("data-years", numberOfMovies);
+      counter.setAttribute("aria-label", numberOfMovies);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-years");
+        let increment = target / 1000;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 400);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    moviesByYearIncrementCounter();
+
+    function numberOfMoviesIncrementCounter() {
+      let counter = document.querySelector(".number-of-movies-span");
+      counter.innerText = "0";
+      let numberOfMoviesInDatabase = 0;
+      rawData.forEach((e) => {
+        ++numberOfMoviesInDatabase;
+      });
+
+      let numberOfMovies = numberOfMoviesInDatabase;
+      counter.setAttribute("data-movies", numberOfMoviesInDatabase);
+      counter.setAttribute("aria-label", numberOfMoviesInDatabase);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-movies");
+        let increment = target / 950;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    numberOfMoviesIncrementCounter();
+
+    function avgRunTimeIncrementCounter() {
+      let counter = document.querySelector(".avg-runtime-span");
+      counter.innerText = "0";
+
+      let runtime = Math.round(mean(rawData.map((d) => d.runtime)));
+
+      counter.setAttribute("data-avgRunTime", runtime);
+      counter.setAttribute("aria-label", runtime);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-avgRunTime");
+        let increment = target / 1000;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 65);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    avgRunTimeIncrementCounter();
+
+    function avgVote() {
+      let counter = document.querySelector(".avg-vote-span");
+      counter.innerText = "0";
+
+      let voteAvg = Math.floor(
+        sum(rawData, (d) => {
+          if (d.vote_average >= 8) {
+            return d.vote_average;
+          } else {
+            return;
+          }
+        })
+      );
+      console.log(voteAvg);
+      counter.setAttribute("data-voteAverage", voteAvg);
+      counter.setAttribute("aria-label", voteAvg);
+
+      const incrementCounter = () => {
+        let target = +counter.getAttribute("data-voteAverage");
+        let increment = target / 1000;
+        let currentNumber = +counter.textContent;
+        if (currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + increment)}`;
+
+          setTimeout(incrementCounter, 5);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      if (!!prefersReducedMotion) {
+        counter.innerText = numberOfMovies;
+      } else {
+        incrementCounter();
+      }
+    }
+    avgVote();
   }
 
   // functions to call charts
