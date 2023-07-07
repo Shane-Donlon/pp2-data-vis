@@ -139,4 +139,18 @@ p {
 section:not(:first-child) {
   background-color: var(--bg-clr-secondary);
   margin-block: 2em;
+  border-radius: 10px;
+}
+.grid-gtc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.card {
+  text-align: center;
+  font-size: 2em;
+  background-color: black;
+  padding: 2em 1em;
+  border-radius: 10px;
 }
