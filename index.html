@@ -86,7 +86,7 @@
         </section>
 
         <!-- mby= moviesbyyear -->
-        <div class="grid">
+        <div class="grid-mby">
           <section
             class="bg-secondary"
             aria-label="Displays movies by year breakdown, on slider change, movies by genre for selected year"
@@ -185,7 +185,12 @@
               alt="cartoon monster with tongue sticking out"
               class="monster-img"
             />
-            <!-- <img
+          </div>
+        </div>
+        <!-- end grid-mby -->
+        <div class="grid-language">
+          <div class="image-container-language">
+            <img
               src="assets/images/popcorn.png"
               alt="cartoon drawing of popcorn in bucket"
               class="popcorn-img"
@@ -194,49 +199,50 @@
               src="assets/images/ticket.png"
               alt="cartoon drawing of ticket stub for cinema"
               class="ticket-img"
-            /> -->
+            />
           </div>
-        </div>
-        <!-- end grid 1 -->
         <section
           class="bg-secondary"
           aria-label="Displays movies by languages breakdown into English and Non-english movies, on slider change, movies by language for selected year"
         >
-          <div class="chart-wrapper">
-            <div class="input-wrapper">
-              <label for="languagePieSlider">
-                Use the slider to drill-down the
-                <span class="chart-span span">chart</span>
-                <span class="table-span span">table</span>
-              </label>
-              <div class="flex">
-                <input
-                  type="range"
-                  name="languagePieSlider"
-                  id="languagePieSlider"
-                  class="languagePieSlider inputSlider"
-                  step="1"
-                  aria-label="Use keyboard or mouse to filter data by year"
-                />
-                <button
-                  class="reset resetlanguagePieChart btn"
-                  aria-label="reset data"
-                >
-                  <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
+            <div class="chart-wrapper">
+              <div class="input-wrapper">
+                <label for="languagePieSlider">
+                  Use the slider to drill-down the
+                  <span class="chart-span span">chart</span>
+                  <span class="table-span span">table</span>
+                </label>
+                <div class="flex">
+                  <input
+                    type="range"
+                    name="languagePieSlider"
+                    id="languagePieSlider"
+                    class="languagePieSlider inputSlider"
+                    step="1"
+                    aria-label="Use keyboard or mouse to filter data by year"
+                  />
+                  <button
+                    class="reset resetlanguagePieChart btn"
+                    aria-label="reset data"
+                  >
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                  </button>
+                </div>
+                <!-- end flex -->
               </div>
-              <!-- end flex -->
+              <!-- end input wrapper -->
+              <div
+                class="languagePie-table-wrapper table-wrapper display-none"
+              ></div>
+              <div class="language-pie-canvas-wrapper canvas-wrapper">
+                <canvas id="languagePieArea" role="presentation"></canvas>
+              </div>
             </div>
-            <!-- end input wrapper -->
-            <div
-              class="languagePie-table-wrapper table-wrapper display-none"
-            ></div>
-            <div class="language-pie-canvas-wrapper canvas-wrapper">
-              <canvas id="languagePieArea" role="presentation"></canvas>
-            </div>
+            <!-- end of chart -wrapper -->
           </div>
+          <!-- end of grid -->
         </section>
-        <!-- end of chart -wrapper -->
+
         <section
           class="bg-secondary"
           aria-label="Displays Vote Average against the revenue of the movie, on slider change to filter by year selected"

@@ -166,8 +166,17 @@ p {
   text-underline-offset: 0.25em;
 }
 
+/* mobile media query */
+@media (max-width: 799px) {
+  .image-container,
+  .image-container-language {
+    display: none;
+  }
+}
+
+/* desktop media query */
 @media (min-width: 800px) {
-  .grid {
+  .grid-mby {
     display: grid;
     grid-template-columns: 2fr 0.5fr 0.5fr;
     gap: 2em;
@@ -177,16 +186,18 @@ p {
     align-self: center;
   }
 
-  /* .grid-gtc {
-    gap: 2.5em;
-  } */
+  .grid-language {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+  }
   .chart-wrappermby {
     min-height: 100%;
   }
   .canvas-wrapper-moviesByYearChart {
     min-height: 500px;
   }
-  .image-container {
+  .image-container,
+  .image-container-language {
     position: relative;
   }
   .image-container > * {
@@ -196,6 +207,7 @@ p {
   .projector-img {
     top: 20px;
   }
+
   .super-hero-img {
     top: 100px;
     transform: rotate(45deg);
@@ -203,5 +215,19 @@ p {
   .monster-img {
     transform: rotate(-35deg);
     top: 200px;
+  }
+
+  .popcorn-img {
+    position: absolute;
+    top: 35px;
+    min-height: 70%;
+    z-index: 1;
+  }
+  .ticket-img {
+    min-height: 70%;
+    z-index: 2;
+    position: absolute;
+    top: 85px;
+    transform: rotate(35deg);
   }
 }
