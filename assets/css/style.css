@@ -230,4 +230,8 @@ p {
     top: 85px;
     transform: rotate(35deg);
   }
+
+  .revBudget-canvas-wrapper {
+    min-height: 500px;
+  }
 }
