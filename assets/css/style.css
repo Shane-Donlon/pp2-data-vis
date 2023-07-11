@@ -247,4 +247,8 @@ p {
     width: 80%;
     margin-inline: auto;
   }
+
+  .label {
+    font-size: 1.25rem;
+  }
 }

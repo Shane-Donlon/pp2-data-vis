@@ -83,6 +83,8 @@ const main = async () => {
       genreData.genreCount = movie[2];
       return genreData;
     });
+    // counters being assigned
+    let numberMoviesCounter = document.querySelector(".number-of-movies-span");
 
     // chart data
     const data = {
@@ -187,6 +189,7 @@ const main = async () => {
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
       );
+
       // sr only table on change
       mbyTableWrapper.innerHTML = null;
       mbyTableHtml = `
@@ -217,6 +220,14 @@ const main = async () => {
       `;
       mbyTableWrapper.innerHTML = mbyTableHtml;
       moviesReleasedChart.update();
+      // update counters
+
+      // update counter to include number of movies on year
+      numberMoviesCounter.innerText = sum(
+        (moviesReleasedChart.data.datasets[0].data = result.map(
+          (d) => d.genreCount
+        ))
+      );
     }
     mbySlider.addEventListener("input", updateChart);
     let mbyButton = document.querySelector(".resetmoviesByYearChart");
@@ -229,6 +240,8 @@ const main = async () => {
       mbycanvasWrapper.innerHTML = null;
       mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
       moviesByYearChart();
+      numberMoviesCounter.innerText =
+        numberMoviesCounter.getAttribute("data-movies");
     });
   }
 
