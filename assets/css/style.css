@@ -231,7 +231,20 @@ p {
     transform: rotate(35deg);
   }
 
+  .canvas-wrapper {
+    padding: 1em;
+  }
+  .chart-wrapper {
+    padding-top: 1.5em;
+  }
   .revBudget-canvas-wrapper {
     min-height: 500px;
+  }
+  #languagePieArea {
+    min-height: 200px;
+  }
+  .language-section {
+    width: 80%;
+    margin-inline: auto;
   }
 }

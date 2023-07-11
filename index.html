@@ -91,9 +91,9 @@
             class="bg-secondary"
             aria-label="Displays movies by year breakdown, on slider change, movies by genre for selected year"
           >
-            <div class="chart-wrappermby">
+            <div class="chart-wrappermby chart-wrapper">
               <div class="input-wrapper">
-                <label for="mbySlider"
+                <label for="mbySlider" class="label"
                   >Use the slider to drill-down the
                   <span class="chart-span span">chart</span>
                   <span class="table-span span">table</span></label
@@ -201,13 +201,13 @@
               class="ticket-img"
             />
           </div>
-        <section
-          class="bg-secondary"
-          aria-label="Displays movies by languages breakdown into English and Non-english movies, on slider change, movies by language for selected year"
-        >
+          <section
+            class="bg-secondary language-section"
+            aria-label="Displays movies by languages breakdown into English and Non-english movies, on slider change, movies by language for selected year"
+          >
             <div class="chart-wrapper">
               <div class="input-wrapper">
-                <label for="languagePieSlider">
+                <label for="languagePieSlider" class="label">
                   Use the slider to drill-down the
                   <span class="chart-span span">chart</span>
                   <span class="table-span span">table</span>
@@ -239,10 +239,9 @@
               </div>
             </div>
             <!-- end of chart -wrapper -->
-          </div>
-          <!-- end of grid -->
-        </section>
-
+          </section>
+        </div>
+        <!-- end of grid -->
         <section
           class="bg-secondary"
           aria-label="Displays Vote Average against the revenue of the movie, on slider change to filter by year selected"
@@ -250,7 +249,7 @@
           <div class="chart-wrapper">
             <div class="input-wrapper">
               <div>
-                <label for="revBudgetSlider">
+                <label for="revBudgetSlider" class="label">
                   Use the slider to drill-down the
                   <span class="chart-span span">chart</span>
                   <span class="table-span span">table</span>
