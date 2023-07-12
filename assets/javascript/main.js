@@ -23,8 +23,25 @@ function parseData(data) {
 const { csv, flatGroup, flatRollup, extent, mean, sum } = d3;
 
 const main = async () => {
-  const rawData = await csv(csvUrl, parseData);
+  try {
+    // test rawData for errors
+    const rawData = await csv(csvUrl, parseData);
+    rawData;
+  } catch (error) {
+    // if error remove display none from error wrapper and input the text of the error message into the browswer
+    let errorWrapper = document.querySelector(".error-wrapper");
+    let errorDetails = document.querySelector(".error-details");
+    errorWrapper.classList.remove("display-none");
+    errorDetails.innerText = error;
+    // console.log is here intentionally also
+    console.log(error);
+  }
+  // else load data and remove the error wrapper element and children
+  let errorWrapper = document.querySelector(".error-wrapper");
+  errorWrapper.remove();
 
+  // load data and start to build charts
+  const rawData = await csv(csvUrl, parseData);
   let sliderMinMax = extent(rawData, (d) => d.release_date);
   const prefersReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||

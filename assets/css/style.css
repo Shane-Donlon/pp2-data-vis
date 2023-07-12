@@ -11,6 +11,16 @@
   --large-font-clamp: clamp(2rem, 1.6364rem + 1.8182vw, 3rem);
 }
 
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background-color: var(--bg-clr-primary);
+}
 /* loader */
 .loader-wrapper {
   display: grid;
@@ -21,6 +31,7 @@
   z-index: 3;
   background-color: var(--bg-clr-primary);
 }
+
 .loader {
   display: inline-block;
   font-size: 48px;
