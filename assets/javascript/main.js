@@ -168,6 +168,9 @@ const main = async () => {
 `;
       mbyTableWrapper.innerHTML = mbyTableHtml;
     }
+    if (localStorage.getItem("accessbilityTables") === "shown") {
+      createMoviesByYearTable();
+    }
     // calling chart creation
     let moviesReleasedChart = new Chart(barChartArea, config);
 
@@ -193,34 +196,40 @@ const main = async () => {
       );
 
       // sr only table on change
-      mbyTableWrapper.innerHTML = null;
-      mbyTableHtml = `
-      <table class="visually-hidden table" tabindex="0">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Genre</th>
-              <th>Count of movies in Genre</th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
+      function updateMoviesByYearTable() {
+        if (localStorage.getItem("accessbilityTables") === "shown") {
+          let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
+          mbyTableWrapper.innerHTML = null;
+          mbyTableHtml = `
+  <table class="visually-hidden table" tabindex="0">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Genre</th>
+          <th>Count of movies in Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
 
-      for (movies of result) {
-        mbyTableRow = `
-          <tr class="mbyTableRow">
-            <td>${movies.release_date}</td>
-            <td>${movies.genres}</td>
-            <td>${movies.genreCount}</td>
-          </tr>
-        `;
-        mbyTableHtml += mbyTableRow;
+          for (movies of result) {
+            mbyTableRow = `
+      <tr class="mbyTableRow">
+        <td>${movies.release_date}</td>
+        <td>${movies.genres}</td>
+        <td>${movies.genreCount}</td>
+      </tr>
+    `;
+            mbyTableHtml += mbyTableRow;
+          }
+          mbyTableHtml += `
+    </tbody>
+  </table>
+  `;
+          mbyTableWrapper.innerHTML = mbyTableHtml;
+        }
       }
-      mbyTableHtml += `
-        </tbody>
-      </table>
-      `;
-      mbyTableWrapper.innerHTML = mbyTableHtml;
+      updateMoviesByYearTable();
       moviesReleasedChart.update();
       // update counters
 
@@ -329,7 +338,8 @@ const main = async () => {
     let languagePieTableWrapper = document.querySelector(
       ".languagePie-table-wrapper"
     );
-    let languagePieTableHtml = `
+    function createLangaugeTable() {
+      let languagePieTableHtml = `
     <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
@@ -340,21 +350,24 @@ const main = async () => {
     <tbody>
 `;
 
-    for (movies of pieDataOnLoad) {
-      let languagePieTableRow = `
+      for (movies of pieDataOnLoad) {
+        let languagePieTableRow = `
     <tr class="mbyTableRow">
       <td>${movies[0]}</td>
       <td>${movies[1]}</td>
     </tr>
   `;
-      languagePieTableHtml += languagePieTableRow;
-    }
-    languagePieTableHtml += `
+        languagePieTableHtml += languagePieTableRow;
+      }
+      languagePieTableHtml += `
   </tbody>
 </table>
 `;
-    languagePieTableWrapper.innerHTML = languagePieTableHtml;
-
+      languagePieTableWrapper.innerHTML = languagePieTableHtml;
+    }
+    if (localStorage.getItem("accessbilityTables") === "shown") {
+      createLangaugeTable();
+    }
     let moviveLanguageChart = new Chart(pieChartArea, config);
     let resetlanguagePieChartBtn = document.querySelector(
       ".resetlanguagePieChart"
@@ -612,7 +625,6 @@ const main = async () => {
       if (localStorage.getItem("accessbilityTables") === "shown") {
         radioWrapperShown.classList.add("display-none");
         radioWrapperHidden.classList.remove("display-none");
-        createMoviesByYearTable();
       } else if (localStorage.getItem("accessbilityTables") === "hidden") {
         radioWrapperHidden.classList.add("display-none");
         radioWrapperShown.classList.remove("display-none");
