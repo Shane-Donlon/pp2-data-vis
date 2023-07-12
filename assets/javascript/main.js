@@ -37,8 +37,6 @@ const main = async () => {
     console.log(error);
   }
   // else load data and remove the error wrapper element and children
-  let errorWrapper = document.querySelector(".error-wrapper");
-  errorWrapper.remove();
 
   // load data and start to build charts
   const rawData = await csv(csvUrl, parseData);
