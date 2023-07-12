@@ -11,6 +11,46 @@
   --large-font-clamp: clamp(2rem, 1.6364rem + 1.8182vw, 3rem);
 }
 
+/* loader */
+.loader-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  background-color: var(--bg-clr-primary);
+}
+.loader {
+  display: inline-block;
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  left: 34px;
+  bottom: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  box-sizing: border-box;
+  animation: rotation 0.6s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 body {
   font-family: "Noto Serif", serif;
   background-color: var(--bg-clr-primary);

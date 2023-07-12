@@ -1,3 +1,8 @@
+window.addEventListener("load", () => {
+  let loader = document.querySelector(".loader-wrapper");
+  loader.remove();
+});
+
 const csvUrl = "assets/data/modifiedData.csv";
 function parseData(data) {
   // each data is in dd/mm/yyyy format, get last 4 characters of string
@@ -17,7 +22,6 @@ function parseData(data) {
 // destructing d3 to avoid d3.csv etc.. in code
 const { csv, flatGroup, flatRollup, extent, mean, sum } = d3;
 
-// barChart
 const main = async () => {
   const rawData = await csv(csvUrl, parseData);
 
