@@ -227,6 +227,7 @@ p {
     top: 35px;
     min-height: 70%;
     z-index: 1;
+    aspect-ratio: 1 / 1;
   }
   .ticket-img {
     min-height: 70%;
@@ -234,6 +235,7 @@ p {
     position: absolute;
     top: 85px;
     transform: rotate(35deg);
+    aspect-ratio: 1 / 1;
   }
 
   .canvas-wrapper {
