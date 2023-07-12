@@ -165,6 +165,10 @@ p {
   color: white;
   text-underline-offset: 0.25em;
 }
+/* if tables do not have any data display none is added else, tables will be shown */
+.table-wrapper:empty {
+  display: none;
+}
 
 /* mobile media query */
 @media (max-width: 799px) {

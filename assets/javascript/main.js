@@ -646,7 +646,7 @@ const main = async () => {
         radioWrapperHidden.classList.add("display-none");
         radioWrapperShown.classList.remove("display-none");
         accessbilityTables.forEach((table) => {
-          table.classList.add("display-none");
+          table.innerHTML = null;
         });
       }
     }
