@@ -26,6 +26,18 @@ const main = async () => {
     // if error remove display none from error wrapper and input the text of the error message into the browswer
     let errorWrapper = document.querySelector(".error-wrapper");
     let errorDetails = document.querySelector(".error-details");
+    errorWrapper.innerHTML = `<h2 class="error-message h2 erorrh2">
+    An Error has occured, please refersh your browser
+  </h2>
+  <h3 class="error-details h3"></h3>
+  <h3 class="mailto h3 link">
+    If the error persists
+    <a
+      href="mailto:test@test.com?subject=Error Message on site"
+      class="link"
+      >please email me</a
+    >
+  </h3>`;
     errorWrapper.classList.remove("display-none");
     errorDetails.innerText = error;
     // console.log is here intentionally also

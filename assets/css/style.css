@@ -217,7 +217,8 @@ p {
   text-underline-offset: 0.25em;
 }
 /* if tables do not have any data display none is added else, tables will be shown */
-.table-wrapper:empty {
+.table-wrapper:empty,
+.error-wrapper:empty {
   display: none;
 }
 
