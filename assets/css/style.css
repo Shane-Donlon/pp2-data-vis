@@ -187,6 +187,20 @@ p {
   /* min-height: 500px; */
 }
 
+canvas {
+  min-height: 500px;
+}
+
+.canvas-wrapper {
+  padding: 1em;
+}
+.chart-wrapper {
+  padding-top: 1.5em;
+}
+.revBudget-canvas-wrapper {
+  min-height: 500px;
+}
+
 /* not first section, not cards section */
 .bg-secondary {
   background-color: var(--bg-clr-secondary);
@@ -290,15 +304,6 @@ p {
     aspect-ratio: 1 / 1;
   }
 
-  .canvas-wrapper {
-    padding: 1em;
-  }
-  .chart-wrapper {
-    padding-top: 1.5em;
-  }
-  .revBudget-canvas-wrapper {
-    min-height: 500px;
-  }
   #languagePieArea {
     min-height: 200px;
   }
