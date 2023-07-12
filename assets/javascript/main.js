@@ -382,6 +382,7 @@ const main = async () => {
       languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
       pieChart();
     });
+
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
       let result = pieDataOnInput.filter((d) => d.year === sliderValue);
@@ -390,7 +391,9 @@ const main = async () => {
       moviveLanguageChart.data.datasets[0].data = result.map(
         (d) => d.languageCount
       );
-      languagePieTableHtml = `
+
+      function pieTableUpdate() {
+        languagePieTableHtml = `
       <table class="visually-hidden table" tabindex="0">
       <thead>
         <tr>
@@ -402,21 +405,25 @@ const main = async () => {
       <tbody>
   `;
 
-      for (movies of result) {
-        languagePieTableRow = `
+        for (movies of result) {
+          languagePieTableRow = `
       <tr class="mbyTableRow">
         <td>${sliderValue}</td>
         <td>${movies.language}</td>
         <td>${movies.languageCount}</td>
       </tr>
     `;
-        languagePieTableHtml += languagePieTableRow;
-      }
-      languagePieTableHtml += `
+          languagePieTableHtml += languagePieTableRow;
+        }
+        languagePieTableHtml += `
     </tbody>
   </table>
   `;
-      languagePieTableWrapper.innerHTML = languagePieTableHtml;
+        languagePieTableWrapper.innerHTML = languagePieTableHtml;
+      }
+      if (localStorage.getItem("accessbilityTables") === "shown") {
+        pieTableUpdate();
+      }
       moviveLanguageChart.update();
     });
   }
@@ -527,36 +534,40 @@ const main = async () => {
     let revBudgetTableWrapper = document.querySelector(
       ".revBudget-table-wrapper"
     );
-    let revBudgetTableHtml = `
-    <table class="visually-hidden table" tabindex="0">
-    <thead>
-      <tr>
-        <th>Revenue</th>
-        <th>Vote Average</th>
-      </tr>
-    </thead>
-    <tbody>
+    function createScatterTable() {
+      let revBudgetTableHtml = `
+  <table class="visually-hidden table" tabindex="0">
+  <thead>
+    <tr>
+      <th>Revenue</th>
+      <th>Vote Average</th>
+    </tr>
+  </thead>
+  <tbody>
 `;
 
-    for (movies of scatterDataOnLoad) {
-      // movies.x = budget movies.y = revenue
-      if (movies.x != undefined && movies.y != undefined) {
-        let revBudgetTableRow = `
-    <tr class="mbyTableRow">
-      <td>${movies.x}</td>
-      <td>${movies.y}</td>
-    </tr>
-  `;
+      for (movies of scatterDataOnLoad) {
+        // movies.x = budget movies.y = revenue
+        if (movies.x != undefined && movies.y != undefined) {
+          let revBudgetTableRow = `
+  <tr class="mbyTableRow">
+    <td>${movies.x}</td>
+    <td>${movies.y}</td>
+  </tr>
+`;
 
-        revBudgetTableHtml += revBudgetTableRow;
+          revBudgetTableHtml += revBudgetTableRow;
+        }
       }
-    }
-    revBudgetTableHtml += `
-  </tbody>
+      revBudgetTableHtml += `
+</tbody>
 </table>
 `;
-    revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
-
+      revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
+    }
+    if (localStorage.getItem("accessbilityTables") === "shown") {
+      createScatterTable();
+    }
     let scatterChart = new Chart(revBudgetArea, config);
     let revBudgetSlider = document.querySelector(".revBudgetSlider");
     revBudgetSlider.setAttribute("min", sliderMinMax[0]);
@@ -581,7 +592,8 @@ const main = async () => {
       scatterChart.data.datasets[0].data = result;
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
-      revBudgetTableHtml = `
+      function updateScatterTable() {
+        revBudgetTableHtml = `
       <table class="visually-hidden table" tabindex="0">
     <thead>
       <tr>
@@ -593,10 +605,10 @@ const main = async () => {
     <tbody>
 `;
 
-      for (movies of result) {
-        // movies.x = budget movies.y = revenue
-        if (movies.x != undefined && movies.y != undefined) {
-          let revBudgetTableRow = `
+        for (movies of result) {
+          // movies.x = budget movies.y = revenue
+          if (movies.x != undefined && movies.y != undefined) {
+            let revBudgetTableRow = `
     <tr class="mbyTableRow">
       <td>${sliderValue}</td>
       <td>${movies.x}</td>
@@ -604,14 +616,18 @@ const main = async () => {
     </tr>
   `;
 
-          revBudgetTableHtml += revBudgetTableRow;
+            revBudgetTableHtml += revBudgetTableRow;
+          }
         }
-      }
-      revBudgetTableHtml += `
+        revBudgetTableHtml += `
   </tbody>
 </table>
 `;
-      revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
+        revBudgetTableWrapper.innerHTML = revBudgetTableHtml;
+      }
+      if (localStorage.getItem("accessbilityTables") === "shown") {
+        updateScatterTable();
+      }
     });
 
     let accessbilityTables = document.querySelectorAll(".table-wrapper");
