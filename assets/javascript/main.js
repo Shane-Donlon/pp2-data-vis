@@ -245,6 +245,7 @@ const main = async () => {
     let mbycanvasWrapper = document.querySelector(
       ".canvas-wrapper-moviesByYearChart"
     );
+
     // btn to reset chart
     mbyButton.addEventListener("click", () => {
       mbySlider.value = sliderMinMax[0];
@@ -660,6 +661,25 @@ const main = async () => {
           table.classList.remove("display-none");
         });
         tablesShown.checked = false;
+        // canvas needs to be deleted first then redraw the whole chart, this allows the tables to load without reloading the entire page
+        let mbycanvasWrapper = document.querySelector(
+          ".canvas-wrapper-moviesByYearChart"
+        );
+        mbycanvasWrapper.innerHTML = null;
+        mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
+        moviesByYearChart();
+        let languagePieCanvasWrapper = document.querySelector(
+          ".language-pie-canvas-wrapper"
+        );
+        languagePieCanvasWrapper.innerHTML = null;
+        languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
+        pieChart();
+        let revBudgetCanvasWrapper = document.querySelector(
+          ".revBudget-canvas-wrapper"
+        );
+        revBudgetCanvasWrapper.innerHTML = null;
+        revBudgetCanvasWrapper.innerHTML = `<canvas id="revBudgetArea"></canvas>`;
+        revBudget();
       }
       if (tablesHidden.checked === true) {
         localStorage.setItem("accessbilityTables", "hidden");
@@ -689,7 +709,6 @@ const main = async () => {
   }
 
   function moviesByYearIncrementCounter() {
-    let movieYears = [];
     let counter = document.querySelector(".counter");
     counter.innerText = "0";
     let numberOfMoviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
