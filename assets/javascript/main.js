@@ -140,32 +140,34 @@ const main = async () => {
     };
 
     // table
-    let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
-    let mbyTableHtml = `
-    <table class="visually-hidden table" tabindex="0">
-    <thead>
-      <tr>
-        <th>Year</th>
-        <th>Count of Movies</th>
-      </tr>
-    </thead>
-    <tbody>
+    function createMoviesByYearTable() {
+      let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
+      let mbyTableHtml = `
+  <table class="visually-hidden table" tabindex="0">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Count of Movies</th>
+    </tr>
+  </thead>
+  <tbody>
 `;
 
-    for (movies of dataForMoviesByYearChart) {
-      let mbyTableRow = `
-    <tr class="mbyTableRow">
-      <td>${movies.year}</td>
-      <td>${movies.count}</td>
-    </tr>
-  `;
-      mbyTableHtml += mbyTableRow;
-    }
-    mbyTableHtml += `
-  </tbody>
+      for (movies of dataForMoviesByYearChart) {
+        let mbyTableRow = `
+  <tr class="mbyTableRow">
+    <td>${movies.year}</td>
+    <td>${movies.count}</td>
+  </tr>
+`;
+        mbyTableHtml += mbyTableRow;
+      }
+      mbyTableHtml += `
+</tbody>
 </table>
 `;
-    mbyTableWrapper.innerHTML = mbyTableHtml;
+      mbyTableWrapper.innerHTML = mbyTableHtml;
+    }
     // calling chart creation
     let moviesReleasedChart = new Chart(barChartArea, config);
 
@@ -610,9 +612,7 @@ const main = async () => {
       if (localStorage.getItem("accessbilityTables") === "shown") {
         radioWrapperShown.classList.add("display-none");
         radioWrapperHidden.classList.remove("display-none");
-        accessbilityTables.forEach((table) => {
-          table.classList.remove("display-none");
-        });
+        createMoviesByYearTable();
       } else if (localStorage.getItem("accessbilityTables") === "hidden") {
         radioWrapperHidden.classList.add("display-none");
         radioWrapperShown.classList.remove("display-none");
