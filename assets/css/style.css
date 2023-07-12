@@ -207,6 +207,7 @@ p {
   .image-container > * {
     position: absolute;
     height: 55%;
+    aspect-ratio: 1 / 1;
   }
   .projector-img {
     top: 20px;
