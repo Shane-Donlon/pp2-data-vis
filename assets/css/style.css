@@ -176,29 +176,23 @@ p {
   gap: 0.5em;
 }
 
-/* TODO: hide this with the accessibility tables and charts in JS */
-.table-span {
-  background-color: red;
-}
-
 .canvas-wrapper {
   /* position relative is needed to make chart responsive */
   position: relative;
   /* min-height: 500px; */
 }
 
-canvas {
+.canvas-wrapper-moviesByYearChart {
   min-height: 500px;
 }
-
+.revBudget-canvas-wrapper {
+  min-height: 500px;
+}
 .canvas-wrapper {
   padding: 1em;
 }
 .chart-wrapper {
   padding-top: 1.5em;
-}
-.revBudget-canvas-wrapper {
-  min-height: 500px;
 }
 
 /* not first section, not cards section */
@@ -263,18 +257,12 @@ canvas {
   .chart-wrappermby {
     min-height: 100%;
   }
-  .canvas-wrapper-moviesByYearChart {
-    min-height: 500px;
-  }
+
   .image-container,
   .image-container-language {
     position: relative;
   }
-  .image-container > * {
-    position: absolute;
-    height: 55%;
-    aspect-ratio: 1 / 1;
-  }
+
   .projector-img {
     top: 20px;
   }
@@ -286,6 +274,7 @@ canvas {
   .monster-img {
     transform: rotate(-35deg);
     top: 200px;
+    aspect-ratio: 1 / 1;
   }
 
   .popcorn-img {
@@ -293,7 +282,6 @@ canvas {
     top: 35px;
     min-height: 70%;
     z-index: 1;
-    aspect-ratio: 1 / 1;
   }
   .ticket-img {
     min-height: 70%;
@@ -301,7 +289,6 @@ canvas {
     position: absolute;
     top: 85px;
     transform: rotate(35deg);
-    aspect-ratio: 1 / 1;
   }
 
   #languagePieArea {
