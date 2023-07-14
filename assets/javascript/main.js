@@ -18,10 +18,10 @@ function parseData(data) {
 const { csv, flatGroup, flatRollup, extent, mean, sum } = d3;
 
 const main = async () => {
+  let rawData;
   try {
     // test rawData for errors
-    const rawData = await csv(csvUrl, parseData);
-    rawData;
+    rawData = await csv(csvUrl, parseData);
   } catch (error) {
     // if error remove display none from error wrapper and input the text of the error message into the browswer
     let errorWrapper = document.querySelector(".error-wrapper");
@@ -46,7 +46,7 @@ const main = async () => {
   // else load data and remove the error wrapper element and children
 
   // load data and start to build charts
-  const rawData = await csv(csvUrl, parseData);
+
   let sliderMinMax = extent(rawData, (d) => d.release_date);
   const prefersReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
@@ -179,7 +179,7 @@ const main = async () => {
   <tbody>
 `;
 
-      for (movies of dataForMoviesByYearChart) {
+      for (let movies of dataForMoviesByYearChart) {
         let mbyTableRow = `
   <tr class="mbyTableRow">
     <td>${movies.year}</td>
@@ -205,6 +205,7 @@ const main = async () => {
 
     function updateChart(e) {
       let sliderValue = +e.target.value;
+      mbySlider.setAttribute("title", `${sliderValue}`);
       // on input change from line chart to bar chart
       config.type = "bar";
       // stop bar chart bars bleeding into yAxis area
@@ -238,7 +239,7 @@ const main = async () => {
       <tbody>
   `;
 
-          for (movies of result) {
+          for (let movies of result) {
             mbyTableRow = `
       <tr class="mbyTableRow">
         <td>${movies.release_date}</td>
@@ -377,7 +378,7 @@ const main = async () => {
     <tbody>
 `;
 
-      for (movies of pieDataOnLoad) {
+      for (let movies of pieDataOnLoad) {
         let languagePieTableRow = `
     <tr class="mbyTableRow">
       <td>${movies[0]}</td>
@@ -412,6 +413,7 @@ const main = async () => {
 
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      languagePieSlider.setAttribute("title", `${sliderValue}`);
       let result = pieDataOnInput.filter((d) => d.year === sliderValue);
       moviveLanguageChart.options.plugins.title.text = `Movies by language for year ${sliderValue}`;
       moviveLanguageChart.data.labels = result.map((d) => d.language);
@@ -432,7 +434,7 @@ const main = async () => {
       <tbody>
   `;
 
-        for (movies of result) {
+        for (let movies of result) {
           languagePieTableRow = `
       <tr class="mbyTableRow">
         <td>${sliderValue}</td>
@@ -589,7 +591,7 @@ const main = async () => {
   <tbody>
 `;
 
-      for (movies of scatterDataOnLoad) {
+      for (let movies of scatterDataOnLoad) {
         // movies.x = budget movies.y = revenue
         if (movies.x != undefined && movies.y != undefined) {
           let revBudgetTableRow = `
@@ -628,6 +630,7 @@ const main = async () => {
 
     revBudgetSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      revBudgetSlider.setAttribute("title", `${sliderValue}`);
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
@@ -651,7 +654,7 @@ const main = async () => {
     <tbody>
 `;
 
-        for (movies of result) {
+        for (let movies of result) {
           // movies.x = budget movies.y = revenue
           if (movies.x != undefined && movies.y != undefined) {
             let revBudgetTableRow = `
