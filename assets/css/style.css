@@ -71,6 +71,7 @@ body {
 .content-wrapper {
   width: min(100% - 3rem, 1500px);
   margin-inline: auto;
+  overflow: hidden;
 }
 
 .title-wrapper {
@@ -259,11 +260,13 @@ p {
   .image-container,
   .image-container-language {
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .image-container > *,
   .image-container-language > * {
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .mby-chart-section {
