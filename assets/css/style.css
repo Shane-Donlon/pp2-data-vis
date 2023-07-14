@@ -188,6 +188,7 @@ p {
 .revBudget-canvas-wrapper {
   min-height: 500px;
 }
+
 .canvas-wrapper {
   padding: 1em;
 }
@@ -254,13 +255,19 @@ p {
     display: grid;
     grid-template-columns: 0.5fr 2fr;
   }
-  .chart-wrappermby {
-    min-height: 100%;
-  }
 
   .image-container,
   .image-container-language {
     position: relative;
+  }
+
+  .image-container > *,
+  .image-container-language > * {
+    object-fit: cover;
+  }
+
+  .mby-chart-section {
+    margin-block: auto;
   }
 
   .projector-img {
