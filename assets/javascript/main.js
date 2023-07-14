@@ -529,6 +529,10 @@ const main = async () => {
 
       options: {
         plugins: {
+          title: {
+            display: true,
+            text: `Revenue Compared to Average Vote for all years`,
+          },
           legend: {
             display: false,
           },
@@ -630,6 +634,7 @@ const main = async () => {
       config.options.plugins.tooltip.callbacks.label = (tooltipItem) => {
         return `Revenue & Vote Average for year ${sliderValue}: ${tooltipItem.formattedValue}`;
       };
+      scatterChart.options.plugins.title.text = `Revenue Compared to Vote Average For Year ${sliderValue}`;
       scatterChart.data.datasets[0].data = result;
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
