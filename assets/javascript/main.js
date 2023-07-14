@@ -510,7 +510,6 @@ const main = async () => {
     const data = {
       datasets: [
         {
-          label: "Vote Average & Revenue for All Years",
           data: scatterDataOnLoad,
           borderColor: chartColors,
           backgroundColor: chartColors,
@@ -527,7 +526,20 @@ const main = async () => {
     const config = {
       type: "scatter",
       data: data,
+
       options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              label: (tooltipItem) => {
+                return `Revenue & vote Average for all years ${tooltipItem.formattedValue}`;
+              },
+            },
+          },
+        },
         scales: {
           x: {
             title: {
@@ -615,7 +627,9 @@ const main = async () => {
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
-      scatterChart.data.datasets[0].label = `Vote Average & Revenue for year ${sliderValue}`;
+      config.options.plugins.tooltip.callbacks.label = (tooltipItem) => {
+        return `Revenue & Vote Average for year ${sliderValue}: ${tooltipItem.formattedValue}`;
+      };
       scatterChart.data.datasets[0].data = result;
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
