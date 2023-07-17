@@ -322,7 +322,7 @@ const main = async () => {
         }
       }
     );
-    let languageSliderValue = document.querySelector(".sliderValueP2");
+    let languageSliderP = document.querySelector(".sliderValueP2");
     let languageSliderOutput = document.querySelector(
       "#languagePieSlidervalue"
     );
@@ -415,7 +415,7 @@ const main = async () => {
     );
     // btn to reset chart
     resetlanguagePieChartBtn.addEventListener("click", () => {
-      languageSliderValue.classList.add("display-none");
+      languageSliderP.classList.add("display-none");
       languageSliderOutput.textContent = null;
       languagePieSlider.value = sliderMinMax[0];
       languagePieCanvasWrapper.innerHTML = null;
@@ -425,7 +425,7 @@ const main = async () => {
 
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
-      languageSliderValue.classList.remove("display-none");
+      languageSliderP.classList.remove("display-none");
       languageSliderOutput.textContent = `${sliderValue}`;
 
       languagePieSlider.setAttribute("title", `${sliderValue}`);
@@ -498,6 +498,9 @@ const main = async () => {
         }
       }
     );
+    let scatterValueP = document.querySelector(".sliderValueP3");
+    let scatterSlidervalue = document.querySelector("#scatterSlidervalue");
+
     let scatterDataforInputChart = scatterDataOnInput.map((movie, index) => {
       let moviesData = {};
       moviesData.year = {};
@@ -638,6 +641,8 @@ const main = async () => {
     );
     revBudgetResetBtn.addEventListener("click", () => {
       revBudgetSlider.value = sliderMinMax[0];
+      scatterValueP.classList.add("display-none");
+      scatterSlidervalue.textContent = null;
       revBudgetCanvasWrapper.innerHTML = null;
       revBudgetCanvasWrapper.innerHTML = `<canvas id="revBudgetArea"></canvas>`;
       revBudget();
@@ -645,6 +650,8 @@ const main = async () => {
 
     revBudgetSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      scatterValueP.classList.remove("display-none");
+      scatterSlidervalue.textContent = `${sliderValue}`;
       revBudgetSlider.setAttribute("title", `${sliderValue}`);
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
