@@ -77,6 +77,8 @@ const main = async () => {
     let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
     const mbySlider = document.querySelector("#mbySlider");
+    let mbySlidervalue = document.querySelector("#mbySlidervalue");
+    let sliderValueP = document.querySelector(".sliderValueP");
 
     // set font size for all charts responsive text JS Media Query see event listener at end also
     chartFontSize();
@@ -205,7 +207,8 @@ const main = async () => {
 
     function updateChart(e) {
       let sliderValue = +e.target.value;
-      mbySlider.setAttribute("title", `${sliderValue}`);
+      sliderValueP.classList.remove("display-none");
+      mbySlidervalue.textContent = `${sliderValue}`;
       // on input change from line chart to bar chart
       config.type = "bar";
       // stop bar chart bars bleeding into yAxis area
@@ -276,6 +279,9 @@ const main = async () => {
     // btn to reset chart
     mbyButton.addEventListener("click", () => {
       mbySlider.value = sliderMinMax[0];
+      mbySlidervalue.textContent = null;
+      sliderValueP.classList.add("display-none");
+
       mbycanvasWrapper.innerHTML = null;
       mbycanvasWrapper.innerHTML = `<canvas id="moviesByYearChart"></canvas>`;
       moviesByYearChart();
@@ -315,6 +321,10 @@ const main = async () => {
           return "Non-English";
         }
       }
+    );
+    let languageSliderValue = document.querySelector(".sliderValueP2");
+    let languageSliderOutput = document.querySelector(
+      "#languagePieSlidervalue"
     );
 
     let pieDataOnInput = pieDataForInput.map((language, index) => {
@@ -405,6 +415,8 @@ const main = async () => {
     );
     // btn to reset chart
     resetlanguagePieChartBtn.addEventListener("click", () => {
+      languageSliderValue.classList.add("display-none");
+      languageSliderOutput.textContent = null;
       languagePieSlider.value = sliderMinMax[0];
       languagePieCanvasWrapper.innerHTML = null;
       languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
@@ -413,6 +425,9 @@ const main = async () => {
 
     languagePieSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
+      languageSliderValue.classList.remove("display-none");
+      languageSliderOutput.textContent = `${sliderValue}`;
+
       languagePieSlider.setAttribute("title", `${sliderValue}`);
       let result = pieDataOnInput.filter((d) => d.year === sliderValue);
       moviveLanguageChart.options.plugins.title.text = `Movies by language for year ${sliderValue}`;
