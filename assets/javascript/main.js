@@ -934,9 +934,22 @@ const main = async () => {
       let yearMap = year.map((d) => d.release_date);
 
       numberMoviesinFilter.textContent = yearMap.length;
+      numberMoviesinFilter.setAttribute(
+        "aria-label",
+        `${numberMoviesinFilter.textContent}`
+      );
       avgRunTimeCard.textContent = avgRuntime;
+      avgRunTimeCard.setAttribute(
+        "aria-label",
+        `${avgRunTimeCard.textContent}`
+      );
       avgVoteCard.textContent = voteAvgContent;
+      avgVoteCard.setAttribute("aria-label", `${avgVoteCard.textContent}`);
       numberOfYearsCard.textContent = numberOfYears.length;
+      numberOfYearsCard.setAttribute(
+        "aria-label",
+        `${numberOfYearsCard.textContent}`
+      );
     });
   });
   let resetButtons = document.querySelectorAll(".reset");
@@ -962,9 +975,16 @@ const main = async () => {
     let avgVoteCard = document.querySelector(".avg-vote-span");
     let numberOfYearsCard = document.querySelector(".counter");
     numberOfMoviesInDatabaseCard.textContent = numberMoviesinFilterAttr;
+    numberOfMoviesInDatabaseCard.setAttribute(
+      "aria-label",
+      numberMoviesinFilterAttr
+    );
     avgRunTimeCard.textContent = avgRunTimeCardAttr;
+    avgRunTimeCard.setAttribute("aria-label", avgRunTimeCardAttr);
     avgVoteCard.textContent = avgVoteCardAttr;
+    avgVoteCard.setAttribute("aria-label", avgVoteCardAttr);
     numberOfYearsCard.textContent = numberOfYearsCardAttr;
+    numberOfYearsCard.setAttribute("aria-label", numberOfYearsCardAttr);
   }
   resetButtons.forEach((button) => {
     button.addEventListener("click", resetCards);
