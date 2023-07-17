@@ -905,6 +905,70 @@ const main = async () => {
       incrementCounter();
     }
   }
+
+  let inputSlider = document.querySelectorAll(".inputSlider");
+  inputSlider.forEach((slider) => {
+    slider.addEventListener("input", () => {
+      let sliderValue = +slider.value;
+      let numberOfYears = [sliderValue];
+
+      let numberMoviesinFilter = document.querySelector(
+        ".number-of-movies-span"
+      );
+      let avgRunTimeCard = document.querySelector(".avg-runtime-span");
+      let avgVoteCard = document.querySelector(".avg-vote-span");
+      let numberOfYearsCard = document.querySelector(".counter");
+      let year = rawData.filter((d) => d.release_date === sliderValue);
+
+      let avgRuntime = Math.round(mean(year.map((d) => d.runtime)));
+      let voteAvgContent = Math.floor(
+        sum(year, (d) => {
+          if (d.vote_average >= 8) {
+            return d.vote_average;
+          } else {
+            return;
+          }
+        })
+      );
+
+      let yearMap = year.map((d) => d.release_date);
+
+      numberMoviesinFilter.textContent = yearMap.length;
+      avgRunTimeCard.textContent = avgRuntime;
+      avgVoteCard.textContent = voteAvgContent;
+      numberOfYearsCard.textContent = numberOfYears.length;
+    });
+  });
+  let resetButtons = document.querySelectorAll(".reset");
+
+  function resetCards() {
+    let numberMoviesinFilterAttr = document
+      .querySelector(".number-of-movies-span")
+      .getAttribute("data-movies");
+    let avgRunTimeCardAttr = document
+      .querySelector(".avg-runtime-span")
+      .getAttribute("data-avgruntime");
+    let avgVoteCardAttr = document
+      .querySelector(".avg-vote-span")
+      .getAttribute("data-voteaverage");
+    let numberOfYearsCardAttr = document
+      .querySelector(".counter")
+      .getAttribute("data-years");
+
+    let numberOfMoviesInDatabaseCard = document.querySelector(
+      ".number-of-movies-span"
+    );
+    let avgRunTimeCard = document.querySelector(".avg-runtime-span");
+    let avgVoteCard = document.querySelector(".avg-vote-span");
+    let numberOfYearsCard = document.querySelector(".counter");
+    numberOfMoviesInDatabaseCard.textContent = numberMoviesinFilterAttr;
+    avgRunTimeCard.textContent = avgRunTimeCardAttr;
+    avgVoteCard.textContent = avgVoteCardAttr;
+    numberOfYearsCard.textContent = numberOfYearsCardAttr;
+  }
+  resetButtons.forEach((button) => {
+    button.addEventListener("click", resetCards);
+  });
   avgVote();
   // functions to call charts
 
