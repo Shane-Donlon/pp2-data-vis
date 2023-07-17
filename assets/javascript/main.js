@@ -771,9 +771,9 @@ const main = async () => {
     } else if (windowWidth <= 900 && windowWidth > 600) {
       Chart.defaults.plugins.title.font.size = 20;
     } else if (windowWidth <= 600 && windowWidth >= 320) {
-      Chart.defaults.plugins.title.font.size = 10;
+      Chart.defaults.plugins.title.font.size = 16;
     } else {
-      Chart.defaults.plugins.title.font.size = 5;
+      Chart.defaults.plugins.title.font.size = 10;
     }
   }
 
