@@ -314,7 +314,8 @@ p {
     margin-inline: auto;
   }
 
-  .label {
+  .label,
+  .sliderValueParagraph {
     font-size: 1.25rem;
   }
 }
