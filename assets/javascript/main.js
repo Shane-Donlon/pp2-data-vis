@@ -428,7 +428,6 @@ const main = async () => {
       languageSliderP.classList.remove("display-none");
       languageSliderOutput.textContent = `${sliderValue}`;
 
-      languagePieSlider.setAttribute("title", `${sliderValue}`);
       let result = pieDataOnInput.filter((d) => d.year === sliderValue);
       moviveLanguageChart.options.plugins.title.text = `Movies by language for year ${sliderValue}`;
       moviveLanguageChart.data.labels = result.map((d) => d.language);
@@ -652,7 +651,7 @@ const main = async () => {
       let sliderValue = +e.target.value;
       scatterValueP.classList.remove("display-none");
       scatterSlidervalue.textContent = `${sliderValue}`;
-      revBudgetSlider.setAttribute("title", `${sliderValue}`);
+
       let result = scatterDataforInputChart.filter(
         (d) => d.year === sliderValue
       );
