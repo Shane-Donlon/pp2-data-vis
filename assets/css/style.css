@@ -286,23 +286,19 @@ p {
     top: 100px;
     transform: rotate(45deg);
   }
-  .monster-img {
-    transform: rotate(-35deg);
-    top: 200px;
-    aspect-ratio: 1 / 1;
-  }
 
   .popcorn-img {
     position: absolute;
     top: 35px;
     min-height: 70%;
-    z-index: 1;
+    z-index: 2;
   }
   .ticket-img {
     min-height: 70%;
-    z-index: 2;
+    z-index: 1;
     position: absolute;
-    top: 85px;
+    top: 50px;
+    left: -50px;
     transform: rotate(35deg);
   }
 
