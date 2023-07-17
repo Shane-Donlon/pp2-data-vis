@@ -227,7 +227,7 @@ p {
   text-underline-offset: 0.25em;
 }
 
-.sliderValueP3 {
+.sliderValueParagraph {
   margin-inline: auto;
 }
 /* if tables do not have any data display none is added else, tables will be shown */
