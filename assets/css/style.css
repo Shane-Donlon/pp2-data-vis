@@ -226,6 +226,10 @@ p {
   color: white;
   text-underline-offset: 0.25em;
 }
+
+.sliderValueP3 {
+  margin-inline: auto;
+}
 /* if tables do not have any data display none is added else, tables will be shown */
 .table-wrapper:empty,
 .error-wrapper:empty {
