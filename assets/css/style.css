@@ -241,6 +241,7 @@ p {
 @media (max-width: 799px) {
   .image-container,
   .monster-img,
+  .card,
   .image-container-language {
     display: none;
   }
@@ -295,7 +296,7 @@ p {
     z-index: 2;
   }
   .ticket-img {
-    min-height: 70%;
+    height: 55%;
     z-index: 1;
     position: absolute;
     top: 50px;
