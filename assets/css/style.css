@@ -240,6 +240,7 @@ p {
 /* mobile media query */
 @media (max-width: 799px) {
   .image-container,
+  .monster-img,
   .image-container-language {
     display: none;
   }
@@ -313,5 +314,12 @@ p {
   .label,
   .sliderValueParagraph {
     font-size: 1.25rem;
+  }
+
+  .monster-img {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    z-index: -1;
   }
 }

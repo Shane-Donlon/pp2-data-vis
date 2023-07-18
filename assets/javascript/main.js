@@ -989,6 +989,14 @@ const main = async () => {
   resetButtons.forEach((button) => {
     button.addEventListener("click", resetCards);
   });
+
+  anime({
+    targets: ".monster-img",
+    keyframes: [{ translateY: -120 }, { translateY: 80 }],
+    duration: 2000,
+    easing: "spring(1, 80, 10, 0)",
+    loop: 3,
+  });
   avgVote();
   // functions to call charts
 
