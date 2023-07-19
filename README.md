@@ -24,9 +24,23 @@
 - As a user I want my reduced motion preferences adhered to.
 
 ## Features:
-- Loading Screen
-- Error Screen
+- Loading Screen:
+  
+  Loading screen appears while content is loading, within the JavaScript I used the eventListener "load" as oppposed to "DomContentLoaded" as I wanted the JavaScript file to render also.
+  There is a slight animation on the "o" that is in the shape of a doughnut chart style.
+  
+  ![loading screen](assets/documentation/loading.jpg)
+- Error Screen:
+  
+  ![Errpr message screen](assets/documentation/errormessage.jpg)
+  ![Errpr message console screen](assets/documentation/errorMessageConsole.jpg)
+
+  In the event that a user does receive an error the error message has instructions on what actions to take (refresh page) and if that continues to fail, there is a call to action within the error(mail:to link)
+  The error is also intentinoally logged to the console. I remvoed the error details from the screen as to not include "technical jargon" to the user.
+
+  
 - Selection Change
+
 - Reduced Motion
 - Tooltips
 - Accessibility Preferences
