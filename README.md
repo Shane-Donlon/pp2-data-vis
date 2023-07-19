@@ -23,3 +23,12 @@
 - As a recurring accessible user I want my accessibility preferences saved to improve my experience.
 - As a user I want my reduced motion preferences adhered to.
 
+## Features:
+- Loading Screen
+- Error Screen
+- Selection Change
+- Reduced Motion
+- Tooltips
+- Accessibility Preferences
+- Skip to Content link
+- Chart Drill-down
