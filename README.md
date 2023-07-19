@@ -79,5 +79,26 @@ https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057
 
   ![Skip to content link](assets/documentation/skipLink.jpg)
 - Accessibility Preferences
+When tabbling through the site the user will be presented with accessibility settings, in which they are turn these on or off as needed.
+the settings are saved in local storage so that for returning users the preferences are saved.
+If the user either enables or disables the tables, the radio button will be presented with the alternate option
+IE If the user has accessibility tables enabled the radio will display "off", and if the user has the accessibliity tables disabled the radio will display "on".
+  ![Enable Accessibility Tables](assets/documentation/a11yTabOn.jpg)
 
+
+  ![Disable Accessibility Tables](assets/documentation/a11yTabOff.jpg)
+
+  ![Chome Development Tools local storage](assets/documentation/localStorage.jpg)
+
+ Each chart has an accessilbity table which will update as the charts update:
+
+  Data table on load:
+
+  
+  ![Data table on load](assets/documentation/languagePieTable.jpg)
+
+  Date table on update:
+
+  
+  ![Data table when updated](assets/documentation/languagePieTableUpdate.jpg)
 - Chart Drill-down
