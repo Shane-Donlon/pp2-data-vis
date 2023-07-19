@@ -57,6 +57,21 @@ https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057
 
 
 - Tooltips
+
+  
+  The below tool tips were custom build using JavaScript functions as the standard Chart.JS tooltips did not accurately convey a summary of the data shown
+
+  The line chart hover tool tip - which highlights the year, and number of movies released
+
+  ![line Chart ToolTips](assets/documentation/mbyTooltip.jpg)
+
+  The bar chart hover tool tip which highlights the movie genre and the number of movies released
+
+  ![Bar Chart ToolTips](assets/documentation/mbyTooltipGenre.jpg)
+
+  The scatterplot chart hover tool tip
+
+  ![Scatter Plot ToolTips](assets/documentation/scatterToolTip.jpg)
 - Accessibility Preferences
 - Skip to Content link
 - Chart Drill-down
