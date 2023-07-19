@@ -52,7 +52,8 @@
 
 - Reduced Motion
   As you can see in the below video that the counters increment, but if the user has a prefers reduced motion set, these do not increment and are instead static.
-
+  As the numbers increment this would of course leave a poor user expierence for screenreaders as if a screenreader is counting incremenet would be very confusing, an aria-label with the value is added to each card, as aria-label will take priority over the numbers displayed.
+  
 https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057-a11c-eb75184a9398
 
 
@@ -102,3 +103,31 @@ IE If the user has accessibility tables enabled the radio will display "off", an
   
   ![Data table when updated](assets/documentation/languagePieTableUpdate.jpg)
 - Chart Drill-down
+  Each chart has a drill-down "slider" option which on input will filter the data to the year and prodcue an updated chart.
+  the `<input>` type for range was used here as it controls both the charts and the data tables, and I did not include click events on the `<canvas>` element intionally as to give the same expierence. When the chart slider is moved the current filtered year is presented, as well as the chart title is updated accorindly.
+
+  
+ ![Line chart on load](assets/documentation/mbyChart.jpg)
+
+
+For the intital movies by year line chart, on input this updates to a bar chart that drills down into the genres of movies for the current year.
+![Bar chart movies by genre](assets/documentation/mbyChartGenres.jpg)
+  
+ Also for desktop each individual card is updated on input change.
+
+ 
+ ![Cards summarising movie details](assets/documentation/cards.jpg)
+
+ Movies by language chart:
+ ![Doughnut chart movies by language](assets/documentation/languagePieOnLoad.jpg)
+
+ Chart when updated:
+![Doughnut chart movies by language for year](assets/documentation/languagePieUpdate.jpg)
+
+  
+Scatterplot on laod:
+ ![Scatterplot chart movies revenue and vote average](assets/documentation/scatterChartOnLoad.jpg)
+
+Scatterplot on update:
+
+![Scatterplot chart movies revenue and vote average for year](assets/documentation/scatterChartUpdate.jpg)
