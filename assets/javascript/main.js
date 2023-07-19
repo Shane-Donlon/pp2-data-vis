@@ -39,7 +39,7 @@ const main = async () => {
     >
   </h3>`;
     errorWrapper.classList.remove("display-none");
-    errorDetails.innerText = error;
+
     // console.log is here intentionally also
     console.log(error);
   }
