@@ -136,3 +136,14 @@ Scatterplot on update:
   
 
 As mobile phones have limited capability compared to desktop / laptop on mobile there are only a few features, this is to preserve "real-estate" for the mobile phone, but also the primary purpose of the site is a dashboard and the data should be telling the story here, for this reason I have only included the charts in the mobile version, the images, image animations, and cards are not displayed on mobile devices and the site is pared back to almost the minimum viable product.
+On mobile devices the dashboard can still be filtered by year, this functionality has not been removed.
+
+
+![movies by year line chart phone](assets/documentation/mobileMbyChart.jpg)
+
+
+![movies by languge doughnut chart phone](assets/documentation/mobileLanguageChart.jpg)
+
+![Scatterplot on mobile](assets/documentation/mobileScatterChart.jpg)
+
+
