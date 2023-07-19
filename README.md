@@ -31,7 +31,9 @@
   Loading screen appears while content is loading, within the JavaScript I used the eventListener "load" as oppposed to "DomContentLoaded" as I wanted the JavaScript file to render also.
   There is a slight animation on the "o" that is in the shape of a doughnut chart style.
   
-  ![loading screen](assets/documentation/loading.jpg)
+  https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/3047cf80-e770-4fa1-9233-a936bac612aa
+
+
 - Error Screen:
   
   ![Errpr message screen](assets/documentation/errormessage.jpg)
@@ -42,8 +44,18 @@
 
   
 - Selection Change
+  
+  ![Selection Change Highlight](assets/documentation/selectionChange.jpg)
+  
+  The ::selection pseudo-element has also been updated, as this improves contrast ratio, as the standard "royalblue" selection did not provide enough contrast
+
 
 - Reduced Motion
+  As you can see in the below video that the counters increment, but if the user has a prefers reduced motion set, these do not increment and are instead static.
+
+https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057-a11c-eb75184a9398
+
+
 - Tooltips
 - Accessibility Preferences
 - Skip to Content link
