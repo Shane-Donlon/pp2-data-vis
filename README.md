@@ -72,6 +72,12 @@ https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057
   The scatterplot chart hover tool tip
 
   ![Scatter Plot ToolTips](assets/documentation/scatterToolTip.jpg)
-- Accessibility Preferences
+
 - Skip to Content link
+
+  When tabbing through the site the user will be preseneted with a skip to content link which bypasses the header section and is linked to  `<main>`
+
+  ![Skip to content link](assets/documentation/skipLink.jpg)
+- Accessibility Preferences
+
 - Chart Drill-down
