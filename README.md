@@ -53,6 +53,24 @@
 - Reduced Motion
   As you can see in the below video that the counters increment, but if the user has a prefers reduced motion set, these do not increment and are instead static.
   As the numbers increment this would of course leave a poor user expierence for screenreaders as if a screenreader is counting incremenet would be very confusing, an aria-label with the value is added to each card, as aria-label will take priority over the numbers displayed.
+  <ul>
+  <li>
+    If the user has a preference set for reduced motion, the animations are
+    slowed down, and overall animation is reduced. This is to reduce animations
+    that can make users nauseous (vestibular dysfunction) to test this in Chrome
+  </li>
+  <ol>
+    <li>Go to Inspect</li>
+    <li>Select the 3 dots beside the X for close</li>
+    <li>Select “Run command”</li>
+    <li>Search for “Reduced”</li>
+    <li>Click the “Do not emulate CSS prefers-reduced-motion”</li>
+    <li>
+      Refresh the page, and you will notice that the animation does not run.
+    </li>
+    <li>To undo this open the site in a new tab.</li>
+  </ol>
+
   
 https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057-a11c-eb75184a9398
 
