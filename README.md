@@ -165,3 +165,45 @@ On mobile devices the dashboard can still be filtered by year, this functionalit
 ![Scatterplot on mobile](assets/documentation/mobileScatterChart.jpg)
 
 
+## Testing:
+Some tests will be marked as N/A as they cannot be tested (eg tabbing)
+
+
+| Testing Number  | Testing Description  |Result Chrome   |Result Chrome Mobile   | Result Firefox  | Result Firefox Mobile  |Result Safari Tablet   |
+|---|---|---|---|---|---|---|
+| 1  | Website Loads  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 2 | Loading Screen Appears  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 3 |Error Screen Appears (on error only)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 4 |Increment counter does not run prefers reduced motion   | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 5 |  Accessibility Tables on tab | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 6  | Accessibility Tables preferences saves  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 7  | Accessibility Tables load without reloading the page  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 8 | Skip to content link works  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 9  | Input ranges adjust chart 1  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 10  | Input ranges adjust chart 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 11 | Input ranges adjust chart 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 12  | Input ranges adjusts accessibility tables 1  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 13  | Input ranges adjusts accessibility tables 2  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 14  | Input ranges adjusts accessibility tables 3  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 15  | Input ranges adjust chart title 1  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 16  | Input ranges adjust chart title 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 17 | Input ranges adjust chart title 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 18  | Input ranges adjust chart year output tag chart 1 | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 19  | Input ranges adjust chart year output tag chart 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 20 | Input ranges adjust chart year output tag chart 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 21 | Input ranges adjusts all cards (input 1) | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 22 | Input ranges adjusts all cards (input 2)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 23 | Input ranges adjusts all cards (input 3)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+| 24 | Monster Animation runs | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 25 |images appear | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+| 26  | Data source website opens in new tab | Pass  | Pass  | Pass  | Pass  | Pass  |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
