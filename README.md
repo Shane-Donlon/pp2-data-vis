@@ -211,5 +211,16 @@ The primary font of the site is Noto Serif, this was used as it has a variety of
 The default fonts for Chartjs are Helvetica Neue, Helvetica, Arial, sans-serif	
 I did not adjust these as I found the contrast in the fonts to be more visually appealing
 
+## Accessibility:
+Using Wave I have found that there are no contrast issues, but this is to measure background and text, as Chartjs uses Canvas with no "text background" I have also used [Colblindor](https://www.color-blindness.com/coblis-color-blindness-simulator/) to measure the accessibility of the canvas elements  
 
-   
+![Wave Accessiblity Score Screen](assets/documentation/wave-accessibility.jpg)
+
+## Colour Scheme:
+### Colours used in CSS:
+![Colour scheme used on site background foreground](assets/documentation/css-colours-used.jpg)
+
+### Colours used in JavaScript for ChartJS
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-1.jpg)
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-2.jpg)
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-3.jpg)
