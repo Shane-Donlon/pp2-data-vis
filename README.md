@@ -248,3 +248,20 @@ In terms of the desktop best-practices section, this is for the "monster" image 
 
 ### Mobile:
 ![Lighthouse report Mobile site overview performance disucessed above](assets/documentation/lighthouse-mobile-overview.jpg)
+
+
+## Credits:
+- [Site Favicon](https://icons8.com/icon/set/popcorn/color)
+- [Reset Button](https://fontawesome.com/icons/arrows-rotate?f=classic&s=solid)
+- [Card Icon Film](https://fontawesome.com/icons/film?f=classic&s=solid)
+- [Card Icon Clapboard](https://fontawesome.com/icons/clapperboard?f=classic&s=solid)
+- [Card Icon Applause](https://fontawesome.com/icons/hands-clapping?f=classic&s=solid)
+- [Card Icon Chart](https://fontawesome.com/icons/chart-simple?f=classic&s=solid)
+- [Card Icon Clapboard](https://fontawesome.com/icons/clapperboard?f=classic&s=solid)
+- [Fonts](https://fonts.google.com/)
+- [Font Size Clamp Generator](https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjUwMHB4IiwibWF4V2lkdGgiOiI5MDBweCIsIm1pbkZvbnRTaXplIjoiMTZweCIsIm1heEZvbnRTaXplIjoiNDhweCJ9)
+- [Fonts](https://fonts.google.com/)
+- [ChartJS Plugin Used for % data labels](https://github.com/DavideViolante/chartjs-plugin-labels)
+- [Loading Screen Loader Icon (link to exact item used not possible)](https://cssloaders.github.io/)
+- [Aleksei Konovalov - for being an excellent mentor through this, and providing guidance.](https://kh.linkedin.com/in/aleksei-konovalov/en?trk=people-guest_people_search-card)
+  
