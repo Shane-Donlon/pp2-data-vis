@@ -237,3 +237,14 @@ Using Wave I have found that there are no contrast issues, but this is to measur
 ![Website wireframe mobile view top](assets/documentation/wireframe-mobile-1.jpg)
 ![CWebsite wireframe mobile view middle](assets/documentation/wireframe-mobile-2.jpg)
 ![Website wireframe mobile view end](assets/documentation/wireframe-mobile-3.jpg)
+
+## Reports:
+Overall I'm pleased with the lighthouse reports for the site, mobile performace is more than understandable given the dataset being processed.
+In terms of the desktop best-practices section, this is for the "monster" image that pops up behind the bar / line chart as the image is not seen, I am not overly concerned with this update.
+### Desktop:
+![Lighthouse report Desktop site overview](assets/documentation/lighthouse-desktop-overview.jpg)
+![Lighthouse report Desktop site performance details](assets/documentation/lighthouse-desktop-details.jpg)
+![Website wireframe Desktop site best-practices discussesd above](assets/documentation/lighthouse-desktop-details-best-practices.jpg)
+
+### Mobile:
+![Lighthouse report Mobile site overview performance disucessed above](assets/documentation/lighthouse-mobile-overview.jpg)
