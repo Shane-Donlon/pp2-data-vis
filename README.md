@@ -53,6 +53,24 @@
 - Reduced Motion
   As you can see in the below video that the counters increment, but if the user has a prefers reduced motion set, these do not increment and are instead static.
   As the numbers increment this would of course leave a poor user expierence for screenreaders as if a screenreader is counting incremenet would be very confusing, an aria-label with the value is added to each card, as aria-label will take priority over the numbers displayed.
+  <ul>
+  <li>
+    If the user has a preference set for reduced motion, the animations are
+    slowed down, and overall animation is reduced. This is to reduce animations
+    that can make users nauseous (vestibular dysfunction) to test this in Chrome
+  </li>
+  <ol>
+    <li>Go to Inspect</li>
+    <li>Select the 3 dots beside the X for close</li>
+    <li>Select “Run command”</li>
+    <li>Search for “Reduced”</li>
+    <li>Click the “Do not emulate CSS prefers-reduced-motion”</li>
+    <li>
+      Refresh the page, and you will notice that the animation does not run.
+    </li>
+    <li>To undo this open the site in a new tab.</li>
+  </ol>
+
   
 https://github.com/Shane-Donlon/pp2-data-vis/assets/130906067/dd781308-8cf7-4057-a11c-eb75184a9398
 
@@ -136,3 +154,59 @@ Scatterplot on update:
   
 
 As mobile phones have limited capability compared to desktop / laptop on mobile there are only a few features, this is to preserve "real-estate" for the mobile phone, but also the primary purpose of the site is a dashboard and the data should be telling the story here, for this reason I have only included the charts in the mobile version, the images, image animations, and cards are not displayed on mobile devices and the site is pared back to almost the minimum viable product.
+On mobile devices the dashboard can still be filtered by year, this functionality has not been removed.
+
+
+![movies by year line chart phone](assets/documentation/mobileMbyChart.jpg)
+
+
+![movies by languge doughnut chart phone](assets/documentation/mobileLanguageChart.jpg)
+
+![Scatterplot on mobile](assets/documentation/mobileScatterChart.jpg)
+
+
+## Testing:
+Some tests will be marked as N/A as they cannot be tested (eg tabbing)
+
+
+Testing Description  |Result Chrome   |Result Chrome Mobile   | Result Firefox  | Result Firefox Mobile  |Result Safari Tablet   |
+---|---|---|---|---|---|
+Website Loads  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Loading Screen Appears  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Error Screen Appears (on error only)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Increment counter does not run prefers reduced motion   | Pass  | Pass  | Pass  | Pass  | Pass  |
+Accessibility Tables on tab | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Accessibility Tables preferences saves  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Accessibility Tables load without reloading the page  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Skip to content link works  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Input ranges adjust chart 1  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjusts accessibility tables 1  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Input ranges adjusts accessibility tables 2  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Input ranges adjusts accessibility tables 3  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Tables load with accessibility preferences on  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Tables do not load with accessibility preferences off  | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Input ranges adjust chart title 1  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart title 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart title 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart year output tag chart 1 | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart year output tag chart 2  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjust chart year output tag chart 3  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjusts all cards (input 1) | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjusts all cards (input 2)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Input ranges adjusts all cards (input 3)  | Pass  | Pass  | Pass  | Pass  | Pass  |
+Monster Animation runs | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+images appear | Pass  | N/A  | Pass  |  N/A   |  N/A   |
+Data source website opens in new tab | Pass  | Pass  | Pass  | Pass  | Pass  |
+   |   |   |   |   |   |
+
+## Fonts
+The primary font of the site is Noto Serif, this was used as it has a variety of weights and styles available for the site, and it was chosen as it could be dynamic in weights and styles with 600 and 400 weights being used
+
+### Chartjs Fonts used:
+The default fonts for Chartjs are Helvetica Neue, Helvetica, Arial, sans-serif	
+I did not adjust these as I found the contrast in the fonts to be more visually appealing
+
+
+   
