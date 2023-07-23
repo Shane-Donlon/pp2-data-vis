@@ -264,4 +264,30 @@ In terms of the desktop best-practices section, this is for the "monster" image 
 - [ChartJS Plugin Used for % data labels](https://github.com/DavideViolante/chartjs-plugin-labels)
 - [Loading Screen Loader Icon (link to exact item used not possible)](https://cssloaders.github.io/)
 - [Aleksei Konovalov - for being an excellent mentor through this, and providing guidance.](https://kh.linkedin.com/in/aleksei-konovalov/en?trk=people-guest_people_search-card)
-  
+
+## Code Validation:
+### HTML:
+![HTML Code Warning](assets/documentation/html-warning.jpg)
+Aria Label is not misused due the span of the loading I wanted to overwrite this to provide context to the user.
+Although ScreenReaders do acknowledge when the page is loaded I still wished to provide context to the user and I do not believe this to be misused
+
+
+### CSS:
+![CSS Code Valid](assets/documentation/validator-css.jpg)
+
+### JavaScript:
+Majority of the undefined variables are for the innerHTML Dynamic tables,
+Regarding D3, ChartJS (Chart), and Anime hese variables do not need to be defined as they are imported directly from the libraries.
+
+![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-1.jpg)
+
+
+![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-2.jpg)
+
+JSHint Warning: 
+Unsure why this warning appears, code runs as expected.
+
+
+![JShint Warning](assets/documentation/validator-jshint-warning-2.jpg)
+![JShint Warning](assets/documentation/validator-jshint-warning-1.jpg)
+
