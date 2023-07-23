@@ -224,3 +224,16 @@ Using Wave I have found that there are no contrast issues, but this is to measur
 ![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-1.jpg)
 ![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-2.jpg)
 ![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-3.jpg)
+
+## Wireframes:
+### Desktop:
+![Website wireframe desktop view top](assets/documentation/wireframe-desktop-1.jpg)
+![CWebsite wireframe desktop view middle](assets/documentation/wireframe-desktop-2.jpg)
+![Website wireframe desktop view end](assets/documentation/wireframe-desktop-3.jpg)
+
+
+
+### Mobile:
+![Website wireframe mobile view top](assets/documentation/wireframe-mobile-1.jpg)
+![CWebsite wireframe mobile view middle](assets/documentation/wireframe-mobile-2.jpg)
+![Website wireframe mobile view end](assets/documentation/wireframe-mobile-3.jpg)
