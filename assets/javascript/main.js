@@ -73,6 +73,7 @@ const main = async () => {
   // bar chart movies by Year
   function moviesByYearChart() {
     Chart.defaults.color = "#ffffff";
+    Chart.defaults.font.family = '"Noto Serif", serif';
     // Data for Bar Chart on load
     let moviesByYear = flatGroup(rawData, (d) => d.release_date).sort();
     // slider to filter data
