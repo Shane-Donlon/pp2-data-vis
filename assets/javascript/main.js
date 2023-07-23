@@ -25,7 +25,6 @@ const main = async () => {
   } catch (error) {
     // if error remove display none from error wrapper and input the text of the error message into the browswer
     let errorWrapper = document.querySelector(".error-wrapper");
-    let errorDetails = document.querySelector(".error-details");
     errorWrapper.innerHTML = `<h2 class="error-message h2 erorrh2">
     An Error has occured, please refersh your browser
   </h2>
