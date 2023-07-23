@@ -201,5 +201,12 @@ images appear | Pass  | N/A  | Pass  |  N/A   |  N/A   |
 Data source website opens in new tab | Pass  | Pass  | Pass  | Pass  | Pass  |
    |   |   |   |   |   |
 
+## Fonts
+The primary font of the site is Noto Serif, this was used as it has a variety of weights and styles available for the site, and it was chosen as it could be dynamic in weights and styles with 600 and 400 weights being used
+
+### Chartjs Fonts used:
+The default fonts for Chartjs are Helvetica Neue, Helvetica, Arial, sans-serif	
+I did not adjust these as I found the contrast in the fonts to be more visually appealing
+
 
    
