@@ -291,3 +291,40 @@ Unsure why this warning appears, code runs as expected.
 ![JShint Warning](assets/documentation/validator-jshint-warning-2.jpg)
 ![JShint Warning](assets/documentation/validator-jshint-warning-1.jpg)
 
+## Deployment:
+
+## Deployment
+The website was deployed using GitHub Pages:
+
+<ol>
+    <li>In the GitHub repository navigate to the Settings tab</li>
+    <li>On the left-hand menu select Pages</li>
+    <li>For the source select Branch: main</li>
+    <li>After the web page refreshes automatically you will see a ribbon on the top saying: Your site is live at https://shane-donlon.github.io/pp2-data-vis/</li>
+</ol>
+
+You can for fork the repository:
+
+<ol>
+    <li>Go to the GitHub repository</li>
+    <li>Click on Fork button in the upper right-hand corner</li>
+    <li>Edit the repository name and description if desired</li>
+    <li>Click the green create fork button</li>
+</ol>
+
+You can clone the repository:
+
+<ol>
+    <li>Go to the GitHub repository</li>
+    <li>Locate the green Code button above the list of files and click it</li>
+    <li>Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard</li>
+    <li>Open Git Bash</li>
+    <li>Change the current working directory to the one where you want the cloned directory</li>
+    <li>Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)</li>
+    <li>Press Enter to create your local clone.</li>
+    <li>You can run this repository locally:</li>
+    <li>Go to the GitHub repository</li>
+    <li>Locate the green Code button above the list of files and click it</li>
+    <li>From the dropdown menu select download Zip.</li>
+    <li>Download and open the zip file to run in an editor</li>
+</ol>
