@@ -1,5 +1,5 @@
-# The Movie Dashboard Data Visualisation
-[The Movie Dashboard](https://shane-donlon.github.io/pp2-data-vis/) is an interactive, and responsive dashboard page to visualise movie data from 2000 to 2013 visualising 17,986 movies.
+# The Movie Breakdown Data Visualisation
+[The Movie Breakdown](https://shane-donlon.github.io/pp2-data-vis/) is an interactive, and responsive dashboard page to visualise movie data from 2000 to 2013 visualising 17,986 movies.
  ![Site Showcase](assets/documentation/pp2-amiresponsive.jpg)
 
  To note: there seems to be an issue between JavaScript and the Am I responsive website which is causing the charts to not appear in the above screenshots.  
