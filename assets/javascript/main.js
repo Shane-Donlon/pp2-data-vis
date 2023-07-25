@@ -42,9 +42,6 @@ const main = async () => {
     // console.log is here intentionally also
     console.log(error);
   }
-  // else load data and remove the error wrapper element and children
-
-  // load data and start to build charts
 
   let sliderMinMax = extent(rawData, (d) => d.release_date);
   const prefersReducedMotion =
@@ -517,11 +514,7 @@ const main = async () => {
       let movieData = {};
       movieData.x = {};
       movieData.y = {};
-      // FIXME: remove if not using bubble
-      // moviedata.r is used for Bubble
-      // movieData.r = {};
-      // movieData.r = 15;
-      // movie[0] is budget
+      // movie[0] is vote average
       movieData.y = movie[0];
       // movie[1] is revenue
       movieData.x = movie[1];
@@ -578,7 +571,6 @@ const main = async () => {
               display: false,
             },
             display: true,
-            // FIXME: consider removing log scales
             type: "logarithmic",
           },
           y: {
@@ -611,7 +603,7 @@ const main = async () => {
 `;
 
       for (let movies of scatterDataOnLoad) {
-        // movies.x = budget movies.y = revenue
+        // movies.x = voteAverage movies.y = revenue
         if (movies.x != undefined && movies.y != undefined) {
           let revBudgetTableRow = `
   <tr class="mbyTableRow">
@@ -662,7 +654,6 @@ const main = async () => {
       };
       scatterChart.options.plugins.title.text = `Revenue Compared to Vote Average For Year ${sliderValue}`;
       scatterChart.data.datasets[0].data = result;
-      // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
       function updateScatterTable() {
         let revBudgetTableHtml;
@@ -679,7 +670,7 @@ const main = async () => {
 `;
 
         for (let movies of result) {
-          // movies.x = budget movies.y = revenue
+          // movies.x = vote Average movies.y = revenue
           if (movies.x != undefined && movies.y != undefined) {
             let revBudgetTableRow = `
     <tr class="mbyTableRow">
