@@ -11,8 +11,6 @@
 - [D3.js library](https://d3js.org/)
 - [Chart.js library](https://en.wikipedia.org/wiki/Chart.js)
 - [Anime.js library](https://animejs.com/)
-- [Google fonts](https://fonts.google.com/)
-- [Font awesome](https://fontawesome.com/)
 
 
 ## User stories:
@@ -43,7 +41,7 @@ Regarding D3, ChartJS (Chart), and Anime these variables do not need to be defin
 
 
 
-## Features:
+## Features & Accessibility Features:
 - Loading Screen:
   
   Loading screen appears while content is loading, within the JavaScript I used the eventListener "load" as oppposed to "DomContentLoaded" as I wanted the JavaScript file to render also.
@@ -65,7 +63,7 @@ Regarding D3, ChartJS (Chart), and Anime these variables do not need to be defin
   
   ![Selection Change Highlight](assets/documentation/selectionChange.jpg)
   
-  The ::selection pseudo-element has also been updated, as this improves contrast ratio, as the standard "royalblue" selection did not provide enough contrast
+  The `::selection` pseudo-element has also been updated, as this improves contrast ratio, as the standard "royalblue" selection did not provide enough contrast
 
 
 - Reduced Motion
@@ -184,6 +182,8 @@ On mobile devices the dashboard can still be filtered by year, this functionalit
 
 
 ## Accessibility:
+As a developer accessibility is very important to me, and I strive to push myself to become more mindful of accessibility needs and take an accessibility first approach, while some of the tables are lengthy, the principal of building a dashboard that is accessibility friendly have been learned as well as the idea of building a new page that is dedicated to accessibility has also been learned during my research into this.
+
 Using Wave I have found that there are no contrast issues, but this is to measure background and text, as Chartjs uses Canvas with no "text background" I have also used [Colblindor](https://www.color-blindness.com/coblis-color-blindness-simulator/) to measure the accessibility of the canvas elements  
 
 ![Wave Accessiblity Score Screen](assets/documentation/wave-accessibility.jpg)
