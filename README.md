@@ -23,25 +23,12 @@
 - As a recurring accessible user I want my accessibility preferences saved to improve my experience.
 - As a user I want my reduced motion preferences adhered to.
 
-## Code Validation:
-### HTML:
-![HTML Code Warning](assets/documentation/html-warning.jpg)
-Aria Label is not misused due the span of the loading I wanted to overwrite this to provide context to the user.
-Although ScreenReaders do acknowledge when the page is loaded I still wished to provide context to the user and I do not believe this to be misused,
-aria live polite was also added to ensure that the message is only read when there is a prolonged loading time.
 
-
-### CSS:
-![CSS Code Valid](assets/documentation/validator-css.jpg)
-
-### JavaScript:
-Regarding D3, ChartJS (Chart), and Anime these variables do not need to be defined as they are imported directly from the libraries.
-
-![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-1.jpg)
 
 
 
 ## Features & Accessibility Features:
+As a developer accessibility is very important to me, and I strive to push myself to become more mindful of accessibility needs and take an accessibility first approach, while some of the tables are lengthy, the principal of building a dashboard that is accessibility friendly have been learned as well as the idea of building a new page that is dedicated to accessibility has also been learned during my research into this.
 - Loading Screen:
   
   Loading screen appears while content is loading, within the JavaScript I used the eventListener "load" as oppposed to "DomContentLoaded" as I wanted the JavaScript file to render also.
@@ -181,8 +168,22 @@ On mobile devices the dashboard can still be filtered by year, this functionalit
 ![Scatterplot on mobile](assets/documentation/mobileScatterChart.jpg)
 
 
-## Accessibility:
-As a developer accessibility is very important to me, and I strive to push myself to become more mindful of accessibility needs and take an accessibility first approach, while some of the tables are lengthy, the principal of building a dashboard that is accessibility friendly have been learned as well as the idea of building a new page that is dedicated to accessibility has also been learned during my research into this.
+## Validator testing
+
+### HTML:
+![HTML Code Warning](assets/documentation/html-warning.jpg)
+Aria Label is not misused due the span of the loading I wanted to overwrite this to provide context to the user.
+Although ScreenReaders do acknowledge when the page is loaded I still wished to provide context to the user and I do not believe this to be misused,
+aria live polite was also added to ensure that the message is only read when there is a prolonged loading time.
+
+
+### CSS:
+![CSS Code Valid](assets/documentation/validator-css.jpg)
+
+### JavaScript:
+Regarding D3, ChartJS (Chart), and Anime these variables do not need to be defined as they are imported directly from the libraries.
+
+![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-1.jpg)
 
 Using Wave I have found that there are no contrast issues, but this is to measure background and text, as Chartjs uses Canvas with no "text background" I have also used [Colblindor](https://www.color-blindness.com/coblis-color-blindness-simulator/) to measure the accessibility of the canvas elements  
 
