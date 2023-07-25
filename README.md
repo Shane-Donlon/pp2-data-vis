@@ -11,8 +11,6 @@
 - [D3.js library](https://d3js.org/)
 - [Chart.js library](https://en.wikipedia.org/wiki/Chart.js)
 - [Anime.js library](https://animejs.com/)
-- [Google fonts](https://fonts.google.com/)
-- [Font awesome](https://fontawesome.com/)
 
 
 ## User stories:
@@ -25,7 +23,25 @@
 - As a recurring accessible user I want my accessibility preferences saved to improve my experience.
 - As a user I want my reduced motion preferences adhered to.
 
-## Features:
+## Code Validation:
+### HTML:
+![HTML Code Warning](assets/documentation/html-warning.jpg)
+Aria Label is not misused due the span of the loading I wanted to overwrite this to provide context to the user.
+Although ScreenReaders do acknowledge when the page is loaded I still wished to provide context to the user and I do not believe this to be misused,
+aria live polite was also added to ensure that the message is only read when there is a prolonged loading time.
+
+
+### CSS:
+![CSS Code Valid](assets/documentation/validator-css.jpg)
+
+### JavaScript:
+Regarding D3, ChartJS (Chart), and Anime these variables do not need to be defined as they are imported directly from the libraries.
+
+![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-1.jpg)
+
+
+
+## Features & Accessibility Features:
 - Loading Screen:
   
   Loading screen appears while content is loading, within the JavaScript I used the eventListener "load" as oppposed to "DomContentLoaded" as I wanted the JavaScript file to render also.
@@ -47,7 +63,7 @@
   
   ![Selection Change Highlight](assets/documentation/selectionChange.jpg)
   
-  The ::selection pseudo-element has also been updated, as this improves contrast ratio, as the standard "royalblue" selection did not provide enough contrast
+  The `::selection` pseudo-element has also been updated, as this improves contrast ratio, as the standard "royalblue" selection did not provide enough contrast
 
 
 - Reduced Motion
@@ -165,6 +181,29 @@ On mobile devices the dashboard can still be filtered by year, this functionalit
 ![Scatterplot on mobile](assets/documentation/mobileScatterChart.jpg)
 
 
+## Accessibility:
+As a developer accessibility is very important to me, and I strive to push myself to become more mindful of accessibility needs and take an accessibility first approach, while some of the tables are lengthy, the principal of building a dashboard that is accessibility friendly have been learned as well as the idea of building a new page that is dedicated to accessibility has also been learned during my research into this.
+
+Using Wave I have found that there are no contrast issues, but this is to measure background and text, as Chartjs uses Canvas with no "text background" I have also used [Colblindor](https://www.color-blindness.com/coblis-color-blindness-simulator/) to measure the accessibility of the canvas elements  
+
+![Wave Accessiblity Score Screen](assets/documentation/wave-accessibility.jpg)
+
+## Colour Scheme:
+### Colours used in CSS:
+![Colour scheme used on site background foreground](assets/documentation/css-colours-used.jpg)
+
+### Colours used in JavaScript for ChartJS
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-1.jpg)
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-2.jpg)
+![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-3.jpg)
+
+## Wireframes:
+### Desktop:
+![Website wireframe desktop view top](assets/documentation/wireframe-desktop-1.jpg)
+![CWebsite wireframe desktop view middle](assets/documentation/wireframe-desktop-2.jpg)
+![Website wireframe desktop view end](assets/documentation/wireframe-desktop-3.jpg)
+
+
 ## Testing:
 Some tests will be marked as N/A as they cannot be tested (eg tabbing)
 
@@ -211,25 +250,6 @@ The primary font of the site is Noto Serif, this was used as it has a variety of
 The default fonts for Chartjs are Helvetica Neue, Helvetica, Arial, sans-serif	
 I did not adjust these as I found the contrast in the fonts to be more visually appealing
 
-## Accessibility:
-Using Wave I have found that there are no contrast issues, but this is to measure background and text, as Chartjs uses Canvas with no "text background" I have also used [Colblindor](https://www.color-blindness.com/coblis-color-blindness-simulator/) to measure the accessibility of the canvas elements  
-
-![Wave Accessiblity Score Screen](assets/documentation/wave-accessibility.jpg)
-
-## Colour Scheme:
-### Colours used in CSS:
-![Colour scheme used on site background foreground](assets/documentation/css-colours-used.jpg)
-
-### Colours used in JavaScript for ChartJS
-![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-1.jpg)
-![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-2.jpg)
-![Colour scheme used on Canvas Elements for charts](assets/documentation/chartjs-colours-3.jpg)
-
-## Wireframes:
-### Desktop:
-![Website wireframe desktop view top](assets/documentation/wireframe-desktop-1.jpg)
-![CWebsite wireframe desktop view middle](assets/documentation/wireframe-desktop-2.jpg)
-![Website wireframe desktop view end](assets/documentation/wireframe-desktop-3.jpg)
 
 
 
@@ -265,31 +285,8 @@ In terms of the desktop best-practices section, this is for the "monster" image 
 - [Loading Screen Loader Icon (link to exact item used not possible)](https://cssloaders.github.io/)
 - [Aleksei Konovalov - for being an excellent mentor through this, and providing guidance.](https://kh.linkedin.com/in/aleksei-konovalov/en?trk=people-guest_people_search-card)
 
-## Code Validation:
-### HTML:
-![HTML Code Warning](assets/documentation/html-warning.jpg)
-Aria Label is not misused due the span of the loading I wanted to overwrite this to provide context to the user.
-Although ScreenReaders do acknowledge when the page is loaded I still wished to provide context to the user and I do not believe this to be misused
 
 
-### CSS:
-![CSS Code Valid](assets/documentation/validator-css.jpg)
-
-### JavaScript:
-Majority of the undefined variables are for the innerHTML Dynamic tables,
-Regarding D3, ChartJS (Chart), and Anime hese variables do not need to be defined as they are imported directly from the libraries.
-
-![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-1.jpg)
-
-
-![JSHint Website Undefined variables](assets/documentation/validator-jshint-undefined-2.jpg)
-
-JSHint Warning: 
-Unsure why this warning appears, code runs as expected.
-
-
-![JShint Warning](assets/documentation/validator-jshint-warning-2.jpg)
-![JShint Warning](assets/documentation/validator-jshint-warning-1.jpg)
 
 ## Deployment:
 
