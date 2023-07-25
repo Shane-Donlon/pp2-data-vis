@@ -216,16 +216,17 @@ const main = async () => {
       let result = filteredDataGenres.filter(
         (d) => d.release_date === sliderValue
       );
-      moviesReleasedChart.options.plugins.title.text = `Distrbution of Movies by Genre For Year ${sliderValue}`;
-      (moviesReleasedChart.data.datasets[0].borderColor = chartColors),
-        (moviesReleasedChart.data.datasets[0].backgroundColor = chartColors),
-        (moviesReleasedChart.data.labels = result.map((d) => d.genres));
+      moviesReleasedChart.options.plugins.title.text = `Distirbution of Movies by Genre For Year ${sliderValue}`;
+      moviesReleasedChart.data.datasets[0].borderColor = chartColors;
+      moviesReleasedChart.data.datasets[0].backgroundColor = chartColors;
+      moviesReleasedChart.data.labels = result.map((d) => d.genres);
       moviesReleasedChart.data.datasets[0].data = result.map(
         (d) => d.genreCount
       );
 
       // sr only table on change
       function updateMoviesByYearTable() {
+        let mbyTableHtml;
         if (localStorage.getItem("accessbilityTables") === "shown") {
           let mbyTableWrapper = document.querySelector(".mby-table-wrapper");
           mbyTableWrapper.innerHTML = null;
@@ -242,7 +243,7 @@ const main = async () => {
   `;
 
           for (let movies of result) {
-            mbyTableRow = `
+            let mbyTableRow = `
       <tr class="mbyTableRow">
         <td>${movies.release_date}</td>
         <td>${movies.genres}</td>
@@ -416,13 +417,13 @@ const main = async () => {
     resetlanguagePieChartBtn.addEventListener("click", () => {
       languageSliderP.classList.add("display-none");
       languageSliderOutput.textContent = null;
-      languagePieSlider.value = sliderMinMax[0];
+      pieChartSlider.value = sliderMinMax[0];
       languagePieCanvasWrapper.innerHTML = null;
       languagePieCanvasWrapper.innerHTML = `<canvas id="languagePieArea"></canvas>`;
       pieChart();
     });
 
-    languagePieSlider.addEventListener("input", (e) => {
+    pieChartSlider.addEventListener("input", (e) => {
       let sliderValue = +e.target.value;
       languageSliderP.classList.remove("display-none");
       languageSliderOutput.textContent = `${sliderValue}`;
@@ -435,6 +436,8 @@ const main = async () => {
       );
 
       function pieTableUpdate() {
+        let languagePieTableHtml;
+        let languagePieTableRow;
         languagePieTableHtml = `
       <table class="visually-hidden table" tabindex="0">
       <thead>
@@ -662,6 +665,7 @@ const main = async () => {
       // scatterChart.options.scales.x.type = "linear";
       scatterChart.update();
       function updateScatterTable() {
+        let revBudgetTableHtml;
         revBudgetTableHtml = `
       <table class="visually-hidden table" tabindex="0">
     <thead>
@@ -859,13 +863,13 @@ const main = async () => {
         counter.innerText = target;
       }
     };
-
     if (!!prefersReducedMotion) {
-      counter.innerText = numberOfMovies;
+      counter.innerText = counter.getAttribute("data-avgRunTime");
     } else {
       incrementCounter();
     }
   }
+
   avgRunTimeIncrementCounter();
 
   function avgVote() {
@@ -899,7 +903,7 @@ const main = async () => {
     };
 
     if (!!prefersReducedMotion) {
-      counter.innerText = numberOfMovies;
+      counter.innerText = counter.getAttribute("data-voteAverage");
     } else {
       incrementCounter();
     }
