@@ -284,12 +284,13 @@ In terms of the desktop best-practices section, this is for the "monster" image 
 - [Fonts](https://fonts.google.com/)
 - [ChartJS Plugin Used for % data labels](https://github.com/DavideViolante/chartjs-plugin-labels)
 - [Loading Screen Loader Icon (link to exact item used not possible)](https://cssloaders.github.io/)
+- [Kaggle](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 - [Aleksei Konovalov - for being an excellent mentor through this, and providing guidance.](https://kh.linkedin.com/in/aleksei-konovalov/en?trk=people-guest_people_search-card)
+- Chloe - without whom the images used wouldn't be possible (bespoke images).
 
 
 
 
-## Deployment:
 
 ## Deployment
 The website was deployed using GitHub Pages:
